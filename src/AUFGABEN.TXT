@@ -1,0 +1,81 @@
+[Rechnenbilder]
+# Dateiname ohne Nummer und Erweiterung (Pfad = grafik\bilder\rechnen\); Anzahl der Bilder
+fisch;8
+apfel;8
+[Buchstabensalat] 
+# zu Buchstabierendes Wort; Dateiname (Pfad = grafik\bilder\buchstab\)
+Banane;Banane.wmf
+Blume;Blume.wmf
+Elefant;Elefant.wmf
+Fisch;FISCH.WMF
+Flugzeug;Flugzeug.wmf
+Hahn;Hahn.wmf
+Kerze;Kerze.wmf
+Roboter;Roboter.wmf
+Schere;SCHERE.WMF
+[Zahlen]
+eins;1
+zwei;2
+drei;3
+vier;4
+fünf;5
+sechs;6
+sieben;7
+acht;8
+neun;9
+zehn;10
+elf;11
+zwölf;12
+dreizehn;13
+vierzehn;14
+fünfzehn;15
+sechzehn;16
+siebzehn;17
+achtzehn;18
+#neunzehn;19
+#zwanzig;20
+#einundzwanzig;21
+#zweiundzwanzig;22
+#dreiundzwanzig;23
+#vierundzwanzig;24
+#fünfundzwanzig;25
+#sechsundzwanzig;26
+#siebenundzwanzig;27
+#achtundzwanzig;28
+[Noten_Lesen]
+# NotenName(Label),  NotenZeile, NotenWichtung, NotenPos
+C;0;0;1
+# Cis;0;1;1;
+D;1;0;2;3
+# Dis;1;
+Des;1;-1;2
+E;2;0;5
+Es;2;-1;4
+F;3;0;6
+Fis;3;1;7
+G;4;0;8
+Gis;4;1;9
+Ges;4;-1;7
+A;5;0;10
+Ais;5;1;11
+As;5;-1;9
+H;6;0;12
+B;6;-1;11
+[Intervalle_Lesen]
+# Intervallname, NotenPos2, NotenPos2
+Prime;0;0;1;1
+Sekunde;0;1;1;3
+Terz;0;2;1;4
+Quarte;0;3;1;6
+Quinte;0;6;1;8
+Sexte;0;5;1;10
+Septime;0;6;1;12
+Oktave;0;7;1;13
+Dezime;0;9;1;17
+[Noten_Spielen]
+# Key1, Key2, Key3
+1;5;8
+1;6;10
+3;7;10
+3;6;11
+[sonstiges]
