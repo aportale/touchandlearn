@@ -16,12 +16,12 @@ type
 	private
 		WmfButton:Array[1..5]of TWMFPressButton;
 		NextMenuButton, LastMenuButton:TWMFPressButton;
-		stddevstr:String;
 		AktMenuPage:Integer;
 		procedure getMenuButtons(Menueseite:Integer);
 		procedure DropMenuButtons;
 		procedure Add_10_Click(Sender: TObject);
 		procedure Sub_10_Click(Sender: TObject);
+		procedure executeLesson(Form: TForm);
 		procedure Buchstabieren_Click(Sender: TObject);
 		procedure Beschriften_Click(Sender: TObject);
 		procedure Zaehlen_Click(Sender: TObject);
@@ -41,89 +41,76 @@ var	Menue_Form: TMenue_Form;
 implementation
 {$R *.DFM}
 
+procedure TMenue_Form.executeLesson(Form: TForm);
+begin
+	playsound(SND_ENDE);
+	Form.SetBounds(0, 0, Screen.Width, Screen.Height);
+	Form.ShowModal;
+	Form.Free;
+end;
 
 procedure TMenue_Form.Add_10_Click(Sender: TObject);
 begin
-	playsound(SND_ENDE);
 	Application.CreateForm(TRechnen_Form, Rechnen_Form);
 	Rechnen_Form.Init(2, 5, 1);
-	Rechnen_Form.ShowModal;
-	Rechnen_Form.Free;
+	executeLesson(Rechnen_Form);
 end;
 
 procedure TMenue_Form.Buchstabieren_Click(Sender: TObject);
 begin
-	playsound(SND_ENDE);
 	Application.CreateForm(TBuchstaben_Form, Buchstaben_Form);
-	Buchstaben_Form.ShowModal;
-	Buchstaben_Form.Free;
+	executeLesson(Buchstaben_Form);
 end;
 
 procedure TMenue_Form.Sub_10_Click(Sender: TObject);
 begin
-	playsound(SND_ENDE);
 	Application.CreateForm(TRechnen_Form, Rechnen_Form);
 	Rechnen_Form.Init(2, 5, 2);
-	Rechnen_Form.ShowModal;
-	Rechnen_Form.Free;
+	executeLesson(Rechnen_Form);
 end;
 
 procedure TMenue_Form.Beschriften_Click(Sender: TObject);
 begin
-	playsound(SND_ENDE);
 	Application.CreateForm(TBeschriften_Form, Beschriften_Form);
 	Beschriften_Form.Init('Buchstabensalat', 1);
-	Beschriften_Form.ShowModal;
-	Beschriften_Form.Free;
+	executeLesson(Beschriften_Form);
 end;
 
 procedure TMenue_Form.Zaehlen_Click(Sender: TObject);
 begin
-	playsound(SND_ENDE);
 	Application.CreateForm(TBeschriften_Form, Beschriften_Form);
 	Beschriften_Form.Init('Zahlen', 2);
-	Beschriften_Form.ShowModal;
-	Beschriften_Form.Free;
+	executeLesson(Beschriften_Form);
 end;
 
 procedure TMenue_Form.Noten_Lesen_Click(Sender: TObject);
 begin
-	playsound(SND_ENDE);
 	Application.CreateForm(TNoten_Lesen_Form, Noten_Lesen_Form);
-	Noten_Lesen_Form.ShowModal;
-	Noten_Lesen_Form.Free;
+	executeLesson(Noten_Lesen_Form);
 end;
 
 procedure TMenue_Form.Intervalle_Lesen_Click(Sender: TObject);
 begin
-	playsound(SND_ENDE);
 	Application.CreateForm(TIntervalle_Lesen_Form, Intervalle_Lesen_Form);
-	Intervalle_Lesen_Form.ShowModal;
-	Intervalle_Lesen_Form.Free;
+	executeLesson(Intervalle_Lesen_Form);
 end;
 
 procedure TMenue_Form.Noten_Spielen_Click(Sender: TObject);
 begin
-	playsound(SND_ENDE);
 	Application.CreateForm(TNoten_Spielen_Form, Noten_Spielen_Form);
-	Noten_Spielen_Form.ShowModal;
-	Noten_Spielen_Form.Free;
+	executeLesson(Noten_Spielen_Form);
 end;
 
 procedure TMenue_Form.Uhr1_Click(Sender: TObject);
 begin
-	playsound(SND_ENDE);
 	Application.CreateForm(TUhr1_Form, Uhr1_Form);
-	Uhr1_Form.ShowModal;
-	Uhr1_Form.Free;
+	executeLesson(Uhr1_Form);
 end;
 
 procedure TMenue_Form.Uhr2_Click(Sender: TObject);
 begin
-	playsound(SND_ENDE);
 	Application.CreateForm(TUhr2_Form, Uhr2_Form);
-	Uhr2_Form.ShowModal;
-	Uhr2_Form.Free;
+	executeLesson(Uhr2_Form);
 end;
 
 procedure TMenue_Form.Leer_Click(Sender: TObject);
