@@ -9,21 +9,23 @@ uses
 
 type
 	TColorButton = class(TGraphicControl)
+
 	private
 		Farbe:Array[1..4] of TColorRef;
-		unpressed:boolean;
+		unpressed: boolean;
 		FarbPalette: HPalette;
-                Timer:TTimer;
-                procedure blink(Sender: TObject);
+    Timer: TTimer;
+    procedure blink(Sender: TObject);
 		procedure paint; override;
+
 	public
-                marked:boolean;
+    marked:boolean;
 		highlighted:boolean;
 		Backbuffering:boolean;
 		caption, fontname:String;
 		afontsize:Integer;
 		AClickable, AIsenabled:Boolean;
-		constructor Create(AOwner: TComponent; AFarbPalette: HPalette);
+		constructor Create(AOwner: TComponent);
 		destructor Destroy; override;
 		procedure MouseDown(Button: TMouseButton;
 		  Shift: TShiftState; X, Y: Integer); override;
@@ -38,6 +40,7 @@ type
 		procedure SetIsEnabled(Value: Boolean);
 		function GetIsEnabled:Boolean;
 		function GetPalette: HPALETTE; override;
+
 	published
 		property OnClick;
 		property OnMouseDown;
@@ -52,10 +55,9 @@ procedure Register;
 
 implementation
 
-constructor TColorButton.Create(AOwner: TComponent; AFarbPalette: HPalette);
+constructor TColorButton.Create(AOwner: TComponent);
 begin
 inherited Create(AOwner);
-	FarbPalette := AFarbPalette;
 	ParentColor := false;
 	fontsize := 10;
 	highlighted := false;
@@ -64,7 +66,7 @@ inherited Create(AOwner);
 	AClickable := true;
 	AIsEnabled := true;
 	Backbuffering:= FALSE;
-        marked := false;
+  marked := false;
 end;
 
 destructor TColorButton.Destroy;
@@ -172,8 +174,6 @@ begin
 					MyCanvas.pen.color := $02000000;
 					MyCanvas.font.color := $02000000;
 					setbkmode(MyCanvas.handle, 1);
-					drawtext(MyCanvas.handle, Atext, 
-					  strlen(Atext), Clientrect, 53);
 					MyCanvas.moveto(0, height - 1);
 					MyCanvas.lineto(width -1, height - 1);
 					MyCanvas.lineto(width -1, -1);
@@ -200,9 +200,6 @@ begin
 					MyCanvas.lineto(width -2, height - 2);
 					MyCanvas.lineto(width -2, 1);
 					setbkmode(MyCanvas.handle, 1);
-					drawtext(MyCanvas.handle, Atext, 
-					  strlen(Atext), rect(1,1,width+1,
-					  height+1), 53);
 			end
 			else
 			begin
@@ -213,10 +210,8 @@ begin
 				MyCanvas.Fillrect(Clientrect);
 				MyCanvas.font.color := $02EDF9F9;
 				setbkmode(MyCanvas.handle, 1);
-				drawtext(MyCanvas.handle, Atext, strlen(Atext), rect(1,1,width+1,height+1), 53);
 				MyCanvas.font.color := $0242a5c6;
 				setbkmode(MyCanvas.handle, 1);
-				drawtext(MyCanvas.handle, Atext, strlen(Atext), Clientrect, 53);
 				MyCanvas.pen.color := $02000000;
 				MyCanvas.moveto(0, height - 1);
 				MyCanvas.lineto(width -1, height - 1);

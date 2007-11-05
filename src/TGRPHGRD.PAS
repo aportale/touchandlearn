@@ -15,12 +15,11 @@ type
 		public
 			Bilderanzahl:Integer;
 			bild:TBitmap;
-			FarbPalette:HPalette;
 			procedure paint; override;
 			constructor Create(AOwner: TComponent); override;
 			constructor Create_Setup(AOwner:TComponent;ATop, ALeft,
 			  AWidth, AHeight:Integer; Aspalten, Azeilen:Word;
-			  AContainer:TMetaFileContainer;AFarbPalette:HPalette);
+			  AContainer:TMetaFileContainer);
 			procedure Init(Anzahl: Integer);
 			procedure Init_Spread(grd1:TGraphicGrid; grd1_n:Integer;
 			  grd2:TGraphicGrid; grd2_n:Integer);
@@ -45,11 +44,9 @@ begin
 end;
 
 constructor TGraphicGrid.Create_Setup(AOwner: TComponent; ATop, ALeft, AWidth,
-  AHeight:Integer; Aspalten, Azeilen:Word; AContainer: TMetaFileContainer;
-  AFarbPalette: HPalette);
+  AHeight:Integer; Aspalten, Azeilen:Word; AContainer: TMetaFileContainer);
 begin
 	Create(AOwner);
-	FarbPalette := AFarbPalette;
 	if Aspalten = 0 then Aspalten := 1;
 	if Azeilen = 0 then Azeilen := 1;
 	Spalten := Aspalten;
@@ -74,7 +71,6 @@ end;
 
 destructor TGraphicGrid.Destroy;
 begin
-	Deleteobject(FarbPalette);
 	bild.free;
 	inherited Destroy;
 end;
@@ -86,7 +82,6 @@ begin
 		BildID.Width := 
 		  Round(Bild.Width / Spalten * 96 / screen.pixelsperinch);
 		BildID.Height := Bild.Height div Zeilen;
-		selectPalette(Bild.Canvas.handle, FarbPalette, FALSE);
 		Bild.Canvas.Draw((Bild.Width div Spalten) * (ASpalte - 1),
 		  (Bild.Height div Zeilen) * (AZeile - 1), BildID);
 	end;
@@ -172,8 +167,6 @@ end;
 procedure TGraphicGrid.Paint;
 begin
 	inherited paint;
-	selectPalette(Canvas.handle, FarbPalette, FALSE);
-	realizepalette(Canvas.handle);
 	Canvas.Stretchdraw(Drawrect, bild);
 end;
 

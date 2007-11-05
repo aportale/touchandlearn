@@ -20,7 +20,6 @@ type
 		AktMenuPage:Integer;
 		procedure getMenuButtons(Menueseite:Integer);
 		procedure DropMenuButtons;
-		function setstddevstr:String;
 		procedure Add_10_Click(Sender: TObject);
 		procedure Sub_10_Click(Sender: TObject);
 		procedure Buchstabieren_Click(Sender: TObject);
@@ -42,50 +41,6 @@ var	Menue_Form: TMenue_Form;
 implementation
 {$R *.DFM}
 
-function TMenue_Form.setstddevstr:String;
-begin
-	{'© A. Portale ''98'}
-	asm
-		cld
-		les di, @result
-		mov al, 16	{Stringlänge}
-		stosb
-		add Al, 153	{169 '@'}
-		stosb
-		sub Al, 137 { 32 ' '}
-		stosb
-		add al, 33	{ 65 'A'}
-		stosb
-		sub al, 19	{ 46 '.'}
-		stosb
-		sub al, 14	{ 32 ' '}
-		stosb
-		add al, 48	{ 80 'P'}
-		stosb
-		add al, 31	{111 'o'}
-		stosb
-		add al, 3	{114 'r'}
-		stosb
-		add al, 2	{116 't'}
-		stosb
-		sub al, 19	{ 97 'a'}
-		stosb
-		add al, 11	{108 'l'}
-		stosb
-		sub al, 7	{101 'e'}
-		stosb
-		sub al, 69	{ 32 ' '}
-		stosb
-		add al, 7	{ 39 '''}
-		stosb
-		add al, 18	{ 57 '9'}
-		stosb
-		sub al, 1	{ 56 '8'}
-		stosb
-	end;
-	if (color shr 24 > 0) or (color <>$FFFFFF) then
-		color := (color and $00FFFFFF);
-end;
 
 procedure TMenue_Form.Add_10_Click(Sender: TObject);
 begin
@@ -229,14 +184,11 @@ end;
 procedure TMenue_Form.FormCreate(Sender: TObject);
 var	i:Integer;
 begin
-	getOwnPalette;
-	SelectPalette(Canvas.handle, OwnPaletteHandle, FALSE);
-	RealizePalette(Canvas.handle);
 	color := $0ffffff;
 	for i := 1 to 5 do
 	begin
 		WmfButton[i] := 
-		  TWMFPressButton.Create_Set(self,OwnPaletteHandle, 2);
+		  TWMFPressButton.Create_Set(self, 2);
 		WmfButton[i].Parent := self;
 	end;
 	WmfButton[1].SetBounds(sca_x(5), sca_y(29), sca_x(256), sca_y(256));
@@ -246,14 +198,12 @@ begin
 	WmfButton[5].SetBounds(sca_x(403), sca_y(314), sca_x(256), sca_y(256));
 	AktMenuPage := 1;
 	NextMenuButton := TWMFPressButton.Create_Load(Self, path+
-	  'grafik\buttons\nextunpr.wmf', path+'grafik\buttons\nextpr.wmf', 
-	  OwnPaletteHandle, 2);
+	  'grafik\buttons\nextunpr.wmf', path+'grafik\buttons\nextpr.wmf', 2);
 	NextMenuButton.Parent := Self;
 	NextMenuButton.SetBounds(sca_x(715), sca_y(320), sca_X(80), sca_y(80));
 	NextMenuButton.OnClick := NextPage;
 	LastMenuButton := TWMFPressButton.Create_Load(Self, 
-	  path+'grafik\buttons\lastunpr.wmf',
-	path+'grafik\buttons\lastpr.wmf', OwnPaletteHandle, 2);
+	  path+'grafik\buttons\lastunpr.wmf',	path+'grafik\buttons\lastpr.wmf', 2);
 	LastMenuButton.Parent := Self;
 	LastMenuButton.SetBounds(sca_x(6), sca_y(320), sca_x(80), sca_y(80));
 	LastMenuButton.OnClick := LastPage;
@@ -263,7 +213,6 @@ end;
 procedure TMenue_Form.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 	playsound(SND_ENDE);
-	DropOwnPalette;
 end;
 
 procedure TMenue_Form.NextPage(Sender: TObject);
@@ -299,7 +248,6 @@ begin
 	canvas.Font.Name := 'Arial';
 	canvas.Font.Size := Round(sca_x(8)*96/screen.pixelsperinch);
 	canvas.Font.color := (not Color);
-	canvas.textout(sca_x(722), sca_y(588), setstddevstr);
 end;
 
 end.

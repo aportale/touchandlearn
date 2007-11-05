@@ -48,7 +48,7 @@ begin
 	ad.RandListStart(1);
 	For i := 0 to 9 do
 	begin
-		Button[i] := TColorButton.Create(Self, OwnPaletteHandle);
+		Button[i] := TColorButton.Create(Self);
 		Button[i].Parent := Self;
 		Button[i].SetCaption(IntToStr((i+1)  mod 10));
 		Button[i].fontsize := sca_x(52);
@@ -59,7 +59,7 @@ begin
 	end;
 	For i := 1 to 6 do
 	begin
-		Flaeche[i] := TOwnLabel.Create(Self, OwnPaletteHandle);
+		Flaeche[i] := TOwnLabel.Create(Self);
 		Flaeche[i].Parent := Self;
 		Flaeche[i].fontsize := sca_x(56);
 		Flaeche[i].fontname := 'Arial';
@@ -86,7 +86,7 @@ begin
 	begin
 		GraphicGrid[i]:= TGraphicGrid.Create_Setup(Self,sca_x(230)*
 		  (i-1)+sca_x(107), sca_y(134), sca_x(126), sca_y(329),
-                  Spalten, Zeilen, WMFContainer, OwnPaletteHandle);
+                  Spalten, Zeilen, WMFContainer);
 		GraphicGrid[i].Parent := Self;
 	end;
 	max_nummer := Spalten * Zeilen;

@@ -39,8 +39,7 @@ type
 		procedure SetIsEnabled(Value: Boolean);
 		function GetIsEnabled:Boolean;
 		constructor Create(AOwner: TComponent; pos_x, pos_y, breite,
-		  hoehe, ASpaltenAnzahl :Integer; wmfpfad:String;
-		  AFarbPalette: HPalette);
+		  hoehe, ASpaltenAnzahl :Integer; wmfpfad:String);
 		destructor Destroy; override;
 	published
 		property OnClick;
@@ -56,10 +55,9 @@ procedure Register;
 implementation
 
 constructor TNotenSys.Create(AOwner: TComponent; pos_x, pos_y, breite, hoehe,
-  ASpaltenAnzahl :Integer; wmfpfad:String; AFarbPalette: HPalette);
+  ASpaltenAnzahl :Integer; wmfpfad:String);
 begin
 	inherited Create(AOwner);
-	FarbPalette := AFarbPalette;
 	SetBounds(pos_x, pos_y, breite, hoehe);
 	NotenSWMF := TMetaFile.Create;
 	NotenSWMF.LoadFromFile(wmfpfad+'notensl.wmf');
@@ -104,7 +102,6 @@ end;
 
 destructor TNotenSys.Destroy;
 Begin
-	DeleteObject(FarbPalette);
 	NotenSWMF.Free;
 	NoteWMF.Free;
 	ZaunWMF.Free;

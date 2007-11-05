@@ -19,8 +19,7 @@ type
 			KeyFilter:Integer;
 			AIsEnabled:Boolean;
 			Clickable:Boolean;
-			constructor Create_Set(AOwner:TComponent; 
-			  AFarbPalette: HPalette; ANotenPlayer:TNotenPlayer; 
+			constructor Create_Set(AOwner:TComponent; ANotenPlayer:TNotenPlayer;
 			  ALeft, ATop, AWidth, AHeight:Integer);
 			destructor Destroy; override;
 			function GetPalette: HPALETTE; override;
@@ -42,8 +41,8 @@ procedure Register;
 
 implementation
 
-constructor TKeyBoard.Create_Set(AOwner: TComponent; AFarbPalette:
-  HPalette; ANotenPlayer:TNotenPlayer; ALeft, ATop, AWidth, AHeight:Integer);
+constructor TKeyBoard.Create_Set(AOwner: TComponent;
+  ANotenPlayer:TNotenPlayer; ALeft, ATop, AWidth, AHeight:Integer);
 var	i, schw_kn_breite:Integer;
 	Y_sca:Real;
 begin

@@ -1,17 +1,19 @@
 program Lernprog;
 
+{%TogetherDiagram 'ModelSupport_LERNPROG\default.txaPackage'}
+
 uses
   Forms,
-  Rechnen in 'RECHNEN.PAS' {Rechnen_Form},
-  Menue in 'MENUE.PAS' {Menue_Form},
-  Buchstb in 'BUCHSTB.PAS' {Buchstaben_Form},
-  Beschrft in 'BESCHRFT.PAS' {Beschriften_Form},
-  Nlesen in 'NLESEN.PAS' {Noten_Lesen_Form},
-  Itvlesen in 'ITVLESEN.PAS' {Intervalle_Lesen_Form},
-  Nspielen in 'NSPIELEN.PAS' {Noten_Spielen_Form},
-  Uhr01 in 'UHR01.PAS' {Uhr1_Form},
-  Basis in 'BASIS.PAS' {Basis_Form},
-  Uhr02 in 'UHR02.PAS' {Uhr2_Form};
+  RECHNEN in 'RECHNEN.PAS' {Rechnen_Form},
+  MENUE in 'MENUE.PAS' {Menue_Form},
+  BUCHSTB in 'BUCHSTB.PAS' {Buchstaben_Form},
+  BESCHRFT in 'BESCHRFT.PAS' {Beschriften_Form},
+  NLESEN in 'NLESEN.PAS' {Noten_Lesen_Form},
+  ITVLESEN in 'ITVLESEN.PAS' {Intervalle_Lesen_Form},
+  NSPIELEN in 'NSPIELEN.PAS' {Noten_Spielen_Form},
+  UHR01 in 'UHR01.PAS' {Uhr1_Form},
+  BASIS in 'BASIS.PAS' {Basis_Form},
+  UHR02 in 'UHR02.PAS' {Uhr2_Form};
 
 {$R *.RES}
 

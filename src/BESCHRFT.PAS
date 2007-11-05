@@ -43,7 +43,7 @@ begin
 	Load_BG_Image('beschrft.wmf');
 	For i := 1 to 3 do
 	begin
-		knopf[i] := TColorButton.Create(Self, OwnPaletteHandle);
+		knopf[i] := TColorButton.Create(Self);
 		with knopf[i] do
 		begin
 			Parent := Self;
@@ -82,7 +82,7 @@ begin
 	1:
 		Begin
 			VGBild:= TOwnImage.Create_Setup(Self, sca_x(129),
-			  sca_y(56), sca_x(541), sca_y(275), OwnPaletteHandle);
+			  sca_y(56), sca_x(541), sca_y(275));
 			VGBild.Parent := Self;
 		end;
 	2:
@@ -90,7 +90,7 @@ begin
 			WMFContainer := TMetaFileContainer.Create(Self);
 			GraphicGrid := TGraphicGrid.Create_Setup(Self,
 			  sca_x(129), sca_y(56), sca_x(541), sca_y(275), 6, 3,
-			  WMFContainer, OwnPaletteHandle);
+			  WMFContainer);
 			GraphicGrid.Parent := self;
 			bild_ad := TAufgabenData.Create_Load(Self, path +
 			  'aufgaben.txt', 'Rechnenbilder');

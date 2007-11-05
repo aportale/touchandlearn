@@ -37,7 +37,7 @@ begin
 	inherited Formcreate(Sender);
 	load_bg_Image('beschrft.wmf');
 	Noten := TnotenSys.Create(Self, sca_x(129), sca_y(56), sca_x(541),
-      sca_y(275), 2, path+'grafik\Musik\', OwnPaletteHandle);
+      sca_y(275), 2, path+'grafik\Musik\');
 	Noten.Parent := Self;
 	Noten.Clickable := FALSE;
 	ad := TAufgabenData.Create_Load(Self, path + 'aufgaben.txt', 
@@ -46,7 +46,7 @@ begin
 	setbkmode(HGBild.Canvas.Handle, 1);
 	For i := 1 to 3 do
 	begin
-		knopf[i] := TColorButton.Create(Self, OwnPaletteHandle);
+		knopf[i] := TColorButton.Create(Self);
 		with knopf[i] do
 		begin
 			BackBuffering := TRUE;

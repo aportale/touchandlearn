@@ -27,7 +27,7 @@ type
 		procedure demark;
 		procedure KreisLinie(winkel, laenge : single; ACanvas:TCanvas);
 		constructor create_Set(AOwner: TComponent; ALeft, ATop, AWidth,
-		  AHeight:Integer; AWMFFileName:String; AFarbPalette:HPalette);
+		  AHeight:Integer; AWMFFileName:String);
 		destructor Destroy; override;
 		procedure MouseDown(Button: TMouseButton; Shift: TShiftState;
 		  X, Y: Integer); override;
@@ -46,10 +46,9 @@ procedure Register;
 implementation
 
 constructor TClock.create_Set(AOwner: TComponent; ALeft, ATop, AWidth,
-  AHeight:Integer; AWMFFileName:String; AFarbPalette:HPalette);
+  AHeight:Integer; AWMFFileName:String);
 begin
 	inherited Create(AOwner);
-	Farbpalette := AFarbpalette;
 	BG_Bild := TMetaFile.Create;
 	BG_Bild.LoadFromFile(AWMFFileName);
 	if AWidth > AHeight then

@@ -41,19 +41,19 @@ begin
 	HGBild.Canvas.Textout(sca_x(132), sca_y(450), '3');
 	HGBild.Canvas.Textout(sca_x(432), sca_y(450), '4');
 	Uhr[1]:=TClock.Create_Set(Self, sca_x(180), sca_y(156), sca_x(200),
-	  sca_y(200), path+'grafik\uhr\uhr_bg01.wmf', ownpalettehandle);
+	  sca_y(200), path+'grafik\uhr\uhr_bg01.wmf');
 	Uhr[1].Parent := Self;
 	Uhr[1].Clickable := True;
 	Uhr[2]:=TClock.Create_Set(Self, sca_x(480), sca_y(156), sca_x(200), 
-	  sca_y(200), path+'grafik\uhr\uhr_bg01.wmf', ownpalettehandle);
+	  sca_y(200), path+'grafik\uhr\uhr_bg01.wmf');
 	Uhr[2].Parent := Self;
 	Uhr[2].Clickable := True;
 	Uhr[3]:=TClock.Create_Set(Self, sca_x(180), sca_y(376), sca_x(200), 
-	  sca_y(200), path+'grafik\uhr\uhr_bg01.wmf', ownpalettehandle);
+	  sca_y(200), path+'grafik\uhr\uhr_bg01.wmf');
 	Uhr[3].Parent := Self;
 	Uhr[3].Clickable := True;
 	Uhr[4]:=TClock.Create_Set(Self, sca_x(480), sca_y(376), sca_x(200), 
-	  sca_y(200), path+'grafik\uhr\uhr_bg01.wmf', ownpalettehandle);
+	  sca_y(200), path+'grafik\uhr\uhr_bg01.wmf');
 	Uhr[4].Parent := Self;
 	Uhr[4].Clickable := True;
 	For i:= 1 to 4 do
@@ -63,7 +63,7 @@ begin
 		Uhr[i].Autopaint := false;
 		Uhr[i].BG_Color := $0282bc8c;
 	end;
-	UhrZeit:= TOwnLabel.Create(Self, OwnPaletteHandle);
+	UhrZeit:= TOwnLabel.Create(Self);
 	UhrZeit.Parent := Self;
 	UhrZeit.FontName := 'Arial';
 	UhrZeit.FontSize := Sca_x(50);

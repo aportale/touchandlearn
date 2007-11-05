@@ -10,14 +10,12 @@ type
 	TOwnImage = class(TGraphicControl)
 	private
 		WMFbild:TMetaFile;
-		FarbPalette:HPalette;
 	public
 		procedure paint; override;
 		constructor Create(AOwner: TComponent); override;
 		constructor Create_Setup(AOwner: TComponent; ATop, ALeft, 
-		  AWidth, AHeight:Integer; AFarbPalette: HPalette);
+		  AWidth, AHeight:Integer);
 		procedure LoadGraphic(DName:String);
-		function GetPalette: HPALETTE; override;
 		destructor Destroy; override;
 	end;
 
@@ -32,16 +30,14 @@ begin
 end;
 
 constructor TOwnImage.Create_Setup(AOwner: TComponent; ATop, ALeft, AWidth,
-  AHeight:Integer; AFarbPalette: HPalette);
+  AHeight:Integer);
 begin
 	Create(AOwner);
-	FarbPalette := AFarbPalette;
 	Setbounds(ATop, ALeft, AWidth, AHeight);
 end;
 
 destructor TOwnImage.Destroy;
 begin
-	Deleteobject(FarbPalette);
 	WMFbild.free;
 	inherited Destroy;
 end;
@@ -72,8 +68,6 @@ begin
 	try
 		bild.width := Width;
 		bild.Height := Height;
-		selectpalette(Bild.Canvas.handle, FarbPalette, FALSE);
-		realizepalette(Bild.Canvas.handle);
 		Bild.Canvas.Fillrect(rect(0,0,bild.width, bild.height));
 		Bild.Canvas.Draw((Width - wmfbild.width) div 2,
 		  (Height - wmfbild.height) div 2,wmfbild);
@@ -81,11 +75,6 @@ begin
 	finally
 		bild.free;
 	end;
-end;
-
-function TOwnImage.GetPalette: HPALETTE;
-begin
-	result := FarbPalette;
 end;
 
 procedure Register;
