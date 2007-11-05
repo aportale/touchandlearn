@@ -1,6 +1,6 @@
 program Lernprog;
 
-{%TogetherDiagram 'ModelSupport_LERNPROG\default.txaPackage'}
+
 
 uses
   Forms,
