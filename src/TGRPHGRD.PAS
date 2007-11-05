@@ -27,7 +27,7 @@ type
 			procedure ClearCell(ASpalte, AZeile: Integer);
 			procedure SetCell_XY(Aspalte, AZeile:Integer; 
 			  BildID:TMetaFile);
-			procedure SetCell_POS(Position: byte; BildID:TMetaFile);
+			procedure SetCell_POS(Position: integer; BildID:TMetaFile);
 			procedure Add_Picture(BildID:TMetaFile);
 			destructor Destroy; override;
 	end;
@@ -88,25 +88,11 @@ begin
 	inc(Bilderanzahl);
 end;
 
-procedure TGraphicGrid.SetCell_POS(Position: byte; BildID:TMetaFile);
-var	x_Pos, y_Pos:byte;
-	z:word;
+procedure TGraphicGrid.SetCell_POS(Position: integer; BildID:TMetaFile);
+var	x_Pos, y_Pos: integer;
 begin
-	z := Zeilen;
-	asm
-		xor AH, AH
-		mov al, Position
-		mov bx, z
-		div bl
-		inc al
-		cmp ah, 0
-		jnz @weiter
-		mov ah, bl
-		dec al
-		@weiter:
-		mov x_pos, al
-		mov y_pos, ah
-	end;
+	x_Pos := ((Position - 1) div 5) + 1;
+	y_Pos := ((Position - 1) mod 5) + 1;
 	SetCell_XY(x_Pos, y_Pos, BildID);
 end;
 
