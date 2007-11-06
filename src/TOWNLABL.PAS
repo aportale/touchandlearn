@@ -74,7 +74,9 @@ begin
 end;
 
 procedure TOwnLabel.Paint;
-var	AText: Array[0..79]of Char;
+var
+	AText: Array[0..79]of Char;
+	RectCopy: TRect;
 begin
 	StrPCopy(Atext, Caption);
 	canvas.font.name := fontname;
@@ -83,6 +85,8 @@ begin
 	canvas.pen.style := psclear;
 	canvas.roundrect(0, 0, width+1, height+1, roundamount, roundamount);
 	setbkmode(Canvas.handle, 1);
+	RectCopy := Clientrect;
+	drawtext(canvas.handle, Atext, strlen(Atext), RectCopy, 53);
 end;
 
 procedure TOwnLabel.mark;

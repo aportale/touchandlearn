@@ -65,7 +65,7 @@ inherited Create(AOwner);
 	AClickable := true;
 	AIsEnabled := true;
 	Backbuffering:= FALSE;
-  marked := false;
+	marked := false;
 end;
 
 destructor TColorButton.Destroy;
@@ -114,7 +114,7 @@ begin
 	if (AClickable and (Button = mbLeft))then
 	begin
 		inherited MouseDown(Button, Shift, X, Y);
-                demark;
+		demark;
 		unpressed := false;
 		paint;
 	end;
@@ -126,7 +126,7 @@ begin
 	if (not(unpressed) and (Button = mbLeft))then
 	begin
 		unpressed := true;
-                demark;
+		demark;
 		paint;
 	end;
 end;
@@ -141,6 +141,7 @@ procedure TColorButton.Paint;
 var	AText: Array[0..79]of Char;
 	Buffer:TBitmap;
 	MyCanvas:TCanvas;
+	RectCopy: TRect;
 begin
 	if Backbuffering then
 	begin
@@ -168,10 +169,12 @@ begin
 						MyCanvas.brush.color:=$02EDF9F9
 					else
 						MyCanvas.brush.color:=$02add6e7;
-					MyCanvas.Fillrect(Clientrect);
+					MyCanvas.Fillrect(ClientRect);
 					MyCanvas.pen.color := $02000000;
 					MyCanvas.font.color := $02000000;
 					setbkmode(MyCanvas.handle, 1);
+					RectCopy := ClientRect;
+					drawtext(MyCanvas.handle, Atext, strlen(Atext), RectCopy, 53);
 					MyCanvas.moveto(0, height - 1);
 					MyCanvas.lineto(width -1, height - 1);
 					MyCanvas.lineto(width -1, -1);
@@ -187,9 +190,9 @@ begin
 				else
 				begin
 					MyCanvas.brush.color := $02EDF9F9;
-					MyCanvas.Fillrect(Clientrect);
+					MyCanvas.Fillrect(RectCopy);
 					MyCanvas.pen.color := $02000000;
-					rectangle(MyCanvas.handle, 0,0, 
+					rectangle(MyCanvas.handle, 0,0,
 					  width, height);
 					MyCanvas.pen.color := $0242a5c6;
 					MyCanvas.rectangle(1,1,width,height);
@@ -198,6 +201,9 @@ begin
 					MyCanvas.lineto(width -2, height - 2);
 					MyCanvas.lineto(width -2, 1);
 					setbkmode(MyCanvas.handle, 1);
+					RectCopy := rect(1, 1, width+1, height+1);
+					drawtext(MyCanvas.handle, Atext, 
+					  strlen(Atext), RectCopy, 53);
 			end
 			else
 			begin
@@ -208,8 +214,12 @@ begin
 				MyCanvas.Fillrect(Clientrect);
 				MyCanvas.font.color := $02EDF9F9;
 				setbkmode(MyCanvas.handle, 1);
+				RectCopy := rect(1,1,width+1,height+1);
+				drawtext(MyCanvas.handle, Atext, strlen(Atext), RectCopy, 53);
 				MyCanvas.font.color := $0242a5c6;
 				setbkmode(MyCanvas.handle, 1);
+				RectCopy := Clientrect;
+				drawtext(MyCanvas.handle, Atext, strlen(Atext), RectCopy, 53);
 				MyCanvas.pen.color := $02000000;
 				MyCanvas.moveto(0, height - 1);
 				MyCanvas.lineto(width -1, height - 1);
@@ -235,13 +245,13 @@ end;
 procedure TColorButton.mark;
 begin
 	if not(marked) then
-        begin
-        	Timer := TTimer.Create(Parent);
+	begin
+		Timer := TTimer.Create(Parent);
 		Timer.Interval := 350;
 		Timer.onTimer := blink;
 		Timer.enabled := true;
 		highlighted := true;
-                marked := true;
+		marked := true;
 		paint;
 	end;
 end;
@@ -251,7 +261,7 @@ begin
 	if marked then
     begin
 		marked := false;
-        highlighted := false;
+		highlighted := false;
 		Timer.Free;
 		paint;
 	end;

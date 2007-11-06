@@ -12,7 +12,6 @@ type
 		procedure FormCreate(Sender: TObject);
 		procedure FormClose(Sender: TObject; var Action: TCloseAction);
 		procedure FormKeyPress(Sender: TObject; var Key: Char);
-		procedure FormPaint(Sender: TObject);
 	private
 		WmfButton:Array[1..5]of TWMFPressButton;
 		NextMenuButton, LastMenuButton:TWMFPressButton;
@@ -217,13 +216,6 @@ End;
 procedure TMenue_Form.FormKeyPress(Sender: TObject; var Key: Char);
 begin
 	if (ord(Key) = 27) or (ord(Key) = 8) then close
-end;
-
-procedure TMenue_Form.FormPaint(Sender: TObject);
-begin
-	canvas.Font.Name := 'Arial';
-	canvas.Font.Size := Round(sca_x(8)*96/screen.pixelsperinch);
-	canvas.Font.color := (not Color);
 end;
 
 end.
