@@ -5,7 +5,7 @@ interface
 uses
 	SysUtils, WinTypes, WinProcs, Messages, Classes, Graphics, Controls,
 	Forms, Dialogs, StdCtrls, ExtCtrls, Tmfcntnr, Tgrphgrd, TAufgdta, 
-	TPressbt, TColBtn, Townlabl, Palette, tools, TNoten, TKBOARD, MPlayer, 
+	TPressbt, TColBtn, Townlabl, tools, TNoten, TKBOARD, MPlayer, 
 	TNotPlay, Musik, Basis;
 
 type

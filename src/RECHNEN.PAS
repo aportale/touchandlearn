@@ -5,7 +5,7 @@ interface
 uses
 	SysUtils, WinTypes, WinProcs, Messages, Classes, Graphics, Controls,
 	Forms, Dialogs, StdCtrls, ExtCtrls, Tmfcntnr, Tgrphgrd, TAufgdta,
-	TPressbt, TColBtn, Townlabl, Palette, tools, Basis;
+	TPressbt, TColBtn, Townlabl, tools, Basis;
 
 type
 	TRechnen_Form = class(TBasis_Form)

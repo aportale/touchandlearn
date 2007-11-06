@@ -4,7 +4,7 @@ interface
 
 uses
 	SysUtils, WinTypes, WinProcs, Messages, Classes, Graphics, Controls,
-	Forms, Dialogs, TAufgdta, TPressbt, TColBtn, Townlabl, Palette, tools,
+	Forms, Dialogs, TAufgdta, TPressbt, TColBtn, Townlabl, tools,
 	StdCtrls, ExtCtrls, TanClock, Basis;
 type
 	TUhr2_Form = class(TBasis_Form)

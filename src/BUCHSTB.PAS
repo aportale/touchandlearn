@@ -5,7 +5,7 @@ interface
 uses
 	SysUtils, WinTypes, WinProcs, Messages, Classes, Graphics, Controls,
 	Forms, Dialogs, StdCtrls, ExtCtrls, TAufgdta, TPressbt, TColBtn, 
-	Townlabl, Palette, tools, townimg, Basis;
+	Townlabl, tools, townimg, Basis;
 
 type
 	TBuchstaben_Form = class(TBasis_Form)

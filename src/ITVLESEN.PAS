@@ -5,7 +5,7 @@ interface
 uses
 	SysUtils, WinTypes, WinProcs, Messages, Classes, Graphics, Controls,
 	Forms, Dialogs, StdCtrls, ExtCtrls, Tmfcntnr, Tgrphgrd, TAufgdta,
-	TPressbt, TColBtn, Townlabl, Palette, tools, TNoten, Basis;
+	TPressbt, TColBtn, Townlabl, tools, TNoten, Basis;
 
 type
 	TIntervalle_Lesen_Form = class(TBasis_Form)

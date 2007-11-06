@@ -4,7 +4,7 @@ interface
 
 uses
 	SysUtils, WinTypes, WinProcs, Messages, Classes, Graphics, Controls,
-	Forms, Dialogs, StdCtrls, RECHNEN, BUCHSTB, BESCHRFT, Palette, TPressbt,
+	Forms, Dialogs, StdCtrls, RECHNEN, BUCHSTB, BESCHRFT, TPressbt,
 	tcolbtn, tools, NLESEN, ITVLESEN, NSPIELEN, UHR01, UHR02;
 
 type
