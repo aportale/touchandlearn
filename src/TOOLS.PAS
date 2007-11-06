@@ -13,7 +13,7 @@ const
 	SND_ENDE = 5;
 	SND_HILFE = 6;
 
-var	Path:String;
+var	Path: String;
 
 procedure Playsound(id:Integer);
 function sca_x(coord: Integer):integer;
