@@ -12,22 +12,20 @@ type
 		Fbutton1:TMetafile;
 		Fbutton2:TMetafile;
 		ungedrueckt:boolean;
-		FarbPalette:HPalette;
 		PaintModus:Integer;
 	public
-		procedure paint; override;
+		procedure Paint; override;
 		constructor Create(AOwner: TComponent); override;
 		constructor Create_Set(AOwner: TComponent;
-		  AFarbPalette: HPalette; APaintmodus:Integer);
-		constructor Create_Load(AOwner: TComponent; unpressed, 
-		  pressed:String; AFarbPalette: HPalette; APaintmodus:Integer);
+		  APaintmodus:Integer);
+		constructor Create_Load(AOwner: TComponent; unpressed,
+		  pressed:String; APaintmodus:Integer);
 		procedure setGraphics(unpressed, pressed:String);
 		procedure MouseDown(Button: TMouseButton;
 		  Shift: TShiftState; X, Y: Integer); override;
 		procedure MouseUp(Button: TMouseButton;
 		  Shift: TShiftState; X, Y: Integer); override;
 		destructor Destroy; override;
-		function GetPalette: HPALETTE; override;
 	published
 		property OnClick;
 		property OnMouseDown;
@@ -48,17 +46,16 @@ begin
 	Fbutton2:= TMetaFile.Create;
 end;
 
-constructor TWMFPressButton.Create_Set(AOwner: TComponent; AFarbPalette: HPalette; APaintmodus:Integer);
+constructor TWMFPressButton.Create_Set(AOwner: TComponent; APaintmodus:Integer);
 begin
 	Create(AOwner);
-	FarbPalette := AFarbPalette;
 	Paintmodus := APaintmodus;
 end;
 
 constructor TWMFPressButton.Create_Load(AOwner: TComponent; unpressed,
-  pressed: String; AFarbPalette: HPalette; APaintmodus:Integer);
+  pressed: String; APaintmodus:Integer);
 begin
-	Create_Set(AOwner, AFarbpalette, APaintmodus);
+	Create_Set(AOwner, APaintmodus);
 	setGraphics(unpressed, pressed);
 end;
 
@@ -67,11 +64,6 @@ begin
 	Fbutton1.Free;
 	Fbutton2.Free;
 	inherited Destroy;
-end;
-
-function TWMFPressButton.GetPalette: HPALETTE;
-begin
-	result := FarbPalette;
 end;
 
 procedure TWMFPressButton.setGraphics(unpressed, pressed:String);
@@ -104,8 +96,6 @@ var	Buffer:TBitmap;
 begin
 	if Paintmodus = 1 then
 	begin
-		SelectPalette(Canvas.handle, FarbPalette, FALSE);
-		RealizePalette(Canvas.handle);
 		if ungedrueckt then Canvas.stretchDraw(Clientrect, Fbutton1)
 		else Canvas.stretchDraw(Clientrect, Fbutton2)
 	end
@@ -115,9 +105,7 @@ begin
 		try
 			Buffer.Height := Height;
 			Buffer.Width := Width;
-			SelectPalette(Buffer.Canvas.handle, FarbPalette, FALSE);
-			RealizePalette(Buffer.Canvas.handle);
-			if ungedrueckt then 
+			if ungedrueckt then
 				Buffer.Canvas.stretchDraw(Clientrect, Fbutton1)
 			else Buffer.Canvas.stretchDraw(Clientrect, Fbutton2);
 			Canvas.Draw(0, 0, Buffer);

@@ -19,7 +19,6 @@ type
 		procedure FileListBox1Change(Sender: TObject);
 		procedure SpeedButton2Click(Sender: TObject);
 		procedure SpeedButton1Click(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 	private
 		Preview: TOwnImage;
 		{ Private-Deklarationen }
@@ -37,10 +36,9 @@ implementation
 
 procedure TWMFPicker.FormCreate(Sender: TObject);
 begin
-	GetOwnPalette;
 	preview := TOwnImage.Create_Setup(self, PreviewBevel.Left+1,
 	 PreviewBevel.Top+1, PreviewBevel.Width-2,
-	 PreviewBevel.Height-2, OwnPalettehANDLE);
+	 PreviewBevel.Height-2);
 	preview.parent := self;
 	Filename := '';
 end;
@@ -63,11 +61,6 @@ end;
 procedure TWMFPicker.SpeedButton1Click(Sender: TObject);
 begin
 	close;
-end;
-
-procedure TWMFPicker.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-	DropOwnPalette;
 end;
 
 end.

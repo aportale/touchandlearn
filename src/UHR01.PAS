@@ -40,7 +40,7 @@ begin
 	helpButton.Onclick := hilfeknopfclick;
 	For i := 1 to 3 do
 	begin
-		knopf[i] := TColorButton.Create(Self, OwnPaletteHandle);
+		knopf[i] := TColorButton.Create(Self);
 		with knopf[i] do
 		begin
 			Parent := Self;
@@ -57,7 +57,7 @@ begin
 	end;
 	Clock:=TClock.Create_Set(Self, sca_x(258), sca_y(40), sca_x(284),
 	  sca_y(284),
-	path+'grafik\uhr\uhr_bg01.wmf', ownpalettehandle);
+	path+'grafik\uhr\uhr_bg01.wmf');
 	Clock.Parent := Self;
 	Clock.Clickable := False;
 	Clock.BG_Color := $0282bc8c;

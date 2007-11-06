@@ -20,9 +20,8 @@ type
 		Richtige_Antwort:Integer;
 		GraphicGrid:TGraphicGrid;
 		WMFContainer:TMetaFileContainer;
-		wort:String;
 		Modus:Integer;
-                schonhilfegegeben:boolean;
+		schonhilfegegeben:boolean;
 		procedure nochmalknopfClick(Sender: TObject);
 		procedure endeknopfClick(Sender: TObject);
 		procedure hilfeknopfClick(Sender: TObject);
@@ -43,7 +42,7 @@ begin
 	Load_BG_Image('beschrft.wmf');
 	For i := 1 to 3 do
 	begin
-		knopf[i] := TColorButton.Create(Self, OwnPaletteHandle);
+		knopf[i] := TColorButton.Create(Self);
 		with knopf[i] do
 		begin
 			Parent := Self;
@@ -61,7 +60,7 @@ begin
 	nextButton.Onclick := nochmalknopfclick;
 	exitButton.Onclick := endeknopfclick;
 	helpButton.Onclick := hilfeknopfclick;
-        schonhilfegegeben:=false;
+		schonhilfegegeben:=false;
 end;
 
 procedure TBeschriften_Form.FormClose(Sender: TObject;
@@ -82,7 +81,7 @@ begin
 	1:
 		Begin
 			VGBild:= TOwnImage.Create_Setup(Self, sca_x(129),
-			  sca_y(56), sca_x(541), sca_y(275), OwnPaletteHandle);
+			  sca_y(56), sca_x(541), sca_y(275));
 			VGBild.Parent := Self;
 		end;
 	2:
@@ -90,20 +89,19 @@ begin
 			WMFContainer := TMetaFileContainer.Create(Self);
 			GraphicGrid := TGraphicGrid.Create_Setup(Self,
 			  sca_x(129), sca_y(56), sca_x(541), sca_y(275), 6, 3,
-			  WMFContainer, OwnPaletteHandle);
+			  WMFContainer);
 			GraphicGrid.Parent := self;
 			bild_ad := TAufgabenData.Create_Load(Self, path +
 			  'aufgaben.txt', 'Rechnenbilder');
 			bild_ad.RandListStart(bild_ad.RAwList.count - 1);
 		end;
 	end;
-        (* dummy.setbounds(sca_x(129),
-			sca_y(56), sca_x(541), sca_y(275)); *)
 	initialisierung;
 end;
 
 procedure TBeschriften_Form.initialisierung;
-var	Zufallszahl, i:Integer;
+var
+	i: Integer;
 	Knopf_Aufgabe:Array[1..3] of Integer;
 begin
 	for i := 1 to 3 do
@@ -132,7 +130,7 @@ begin
 		end;
 	end;
 	Aufgabe_Laeuft:=true;
-        schonhilfegegeben:=false;
+	schonhilfegegeben:=false;
 end;
 
 procedure TBeschriften_Form.ziehen(Sender: TObject);
@@ -167,13 +165,12 @@ begin
 end;
 
 procedure TBeschriften_Form.hilfeknopfClick(Sender: TObject);
-var	i:Integer;
 begin
 	if Aufgabe_Laeuft and not(schonhilfegegeben) then
 	begin
 		playsound(SND_HILFE);
 		Knopf[Richtige_Antwort].mark;
-                schonhilfegegeben:=true;
+		schonhilfegegeben:=true;
 	end;
 end;
 

@@ -18,7 +18,6 @@ type
 		ad:TAufgabenData;
 		Noten_name:TOwnLabel;
 		Noten:Array[1..4] of TNotenSys;
-		bild: TMetaFile;
 		PlayNote:Integer;
 		procedure ziehen(Sender: TObject);
 		procedure PlayKnopfClick(Sender: TObject);
@@ -33,27 +32,28 @@ implementation
 {$R *.DFM}
 
 procedure TNoten_Lesen_Form.FormCreate(Sender: TObject);
-var	i, j:Integer;
+var
+	i: Integer;
 begin
 	inherited FormCreate(Sender);
 	load_bg_image('musik_1.wmf');
-	Noten_Name:= TOwnLabel.Create(Self, OwnPaletteHandle);
+	Noten_Name:= TOwnLabel.Create(Self);
 	Noten_Name.Parent := Self;
 	Noten_Name.FontName := 'Arial';
 	Noten_Name.FontSize := Sca_x(70);
 	Noten_Name.SetBounds(Sca_x(250), Sca_y(46), Sca_x(300), Sca_y(116));
 	HGBild.Canvas.Font.Color := $0282bc8c;
 	Noten[1] := TnotenSys.Create(Self, sca_x(170), sca_y(211), sca_x(200),
-	  sca_x(150), 1, path+'grafik\Musik\', OwnPaletteHandle);
+	  sca_x(150), 1, path+'grafik\Musik\');
 	HGBild.Canvas.TextOut(sca_x(134), sca_y(256), '1');
 	Noten[2] := TnotenSys.Create(Self, sca_x(450), sca_y(211), sca_x(200),
-	  sca_x(150), 1, path+'grafik\Musik\', OwnPaletteHandle);
+	  sca_x(150), 1, path+'grafik\Musik\');
 	HGBild.Canvas.TextOut(sca_x(411), sca_y(256), '2');
 	Noten[3] := TnotenSys.Create(Self, sca_x(170), sca_y(386), sca_x(200),
-	  sca_x(150), 1, path+'grafik\Musik\', OwnPaletteHandle);
+	  sca_x(150), 1, path+'grafik\Musik\');
 	HGBild.Canvas.TextOut(sca_x(134), sca_y(431), '3');
 	Noten[4] := TnotenSys.Create(Self, sca_x(450), sca_y(386), sca_x(200),
-	  sca_x(150), 1, path+'grafik\Musik\', OwnPaletteHandle);
+	  sca_x(150), 1, path+'grafik\Musik\');
 	HGBild.Canvas.TextOut(sca_x(411), sca_y(431), '4');
 	For i := 1 to 4 do
 	begin

@@ -13,7 +13,7 @@ const
 	SND_ENDE = 5;
 	SND_HILFE = 6;
 
-var	Path:String;
+var	Path: String;
 
 procedure Playsound(id:Integer);
 function sca_x(coord: Integer):integer;
@@ -27,7 +27,6 @@ const
 	  'ende.wav', 'hilfe.wav');
 
 var	s_Filename:Array[0..80] of CHAR;
-	sca_faktor_x, sca_faktor_y :Real;
 
 procedure Playsound(id:Integer);
 begin
@@ -38,18 +37,16 @@ end;
 
 function sca_x(coord: Integer):integer;
 begin
-	sca_x := round(sca_faktor_x * coord);
+	sca_x := round(Screen.Width / 800 * coord);
 end;
 
 function sca_y(coord: Integer):integer;
 begin
-	sca_y := round(sca_faktor_y * coord);
+	sca_y := round(Screen.Height / 600 * coord);
 end;
 
 begin
 
 Path := ExtractFilePath(paramstr(0));
-sca_faktor_x := Screen.Width / 800;
-sca_faktor_y := Screen.Height / 600;
 
 end.

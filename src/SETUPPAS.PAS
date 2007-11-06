@@ -5,7 +5,7 @@ interface
 uses
   SysUtils, WinTypes, WinProcs, Messages, Classes, Graphics, Controls,
   Forms, Dialogs, ExtCtrls, TOwnImg, Grids, Outline, StdCtrls, Palette,
-  TAufgdta, tools, Buttons, FMXUtils;
+  TAufgdta, tools, Buttons;
 
 type
   TSetupForm = class(TForm)
@@ -54,12 +54,10 @@ uses S_wmfpic, s_hilfe;
 procedure TSetupForm.FormCreate(Sender: TObject);
 var i:Integer;
 begin
-	GetOwnPalette;
 		 top := (screen.height - height) div 2;
 		 left := (screen.width - width) div 2;
 		 preview := TOwnImage.Create_Setup(Self, PreviewBevel.Left+1,
-			 PreviewBevel.Top+1, PreviewBevel.Width-2,
-			 PreviewBevel.Height-2, OwnPalettehANDLE);
+			 PreviewBevel.Top+1, PreviewBevel.Width-2, PreviewBevel.Height-2);
 		 PREVIEW.Parent := Self;
 		 ad := TAufgabenData.Create_Load(Self,path+'aufgaben.txt', 'Buchstabensalat');
 		 dateinamen := Tstringlist.create;
@@ -109,7 +107,6 @@ begin
 		 Preview.free;
 		 ad.Destroy;
 		 dateinamen.free;
-		 dropownpalette;
 end;
 
 procedure TSetupForm.savesetup;
@@ -177,7 +174,7 @@ begin
 				 mtConfirmation, [mbYes, mbAbort], 0) = mrYes then
 				 begin
 							SaveSetup;
-							deletefile(path + 'grafik\bilder\buchstab\' + dateinamen.strings[ListboxItemIndex]);
+							DeleteFile(PChar(path + 'grafik\bilder\buchstab\' + dateinamen.strings[ListboxItemIndex]));
 							dateinamen.delete(ListboxItemIndex);
 							bildnameListbox.items.delete(ListboxItemIndex);
 							if ListboxItemIndex <= (dateinamen.count-1) then
@@ -197,7 +194,7 @@ begin
 end;
 
 procedure TSetupForm.SpeedButton2Click(Sender: TObject);
-var FName :TFileName;
+var FName :string;
 		BildNameTemp:String;
 begin
 	WmfPicker.showModal;
@@ -210,7 +207,7 @@ begin
 			bildNameListBox.items.add(BildNameTemp);
 			dateinamen.add(ExtractFileName(WmfPicker.Filename));
 			FName := path + 'grafik\bilder\buchstab';
-			copyfile(WmfPicker.Filename, FName);
+			copyfile(PChar(WmfPicker.Filename), PChar(FName), TRUE);
 			selectItem(dateinamen.count-1);
 		end
 		else

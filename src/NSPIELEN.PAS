@@ -41,13 +41,13 @@ begin
 	ad := TAufgabenData.Create_Load(Self, path + 'aufgaben.txt', 
 	  'Noten_Spielen');
 	ad.RandListStart(ad.RAwList.count div 2);
-	Keyboard := TKeyboard.Create_Set(Self, Ownpalettehandle, NotenPlayer,
+	Keyboard := TKeyboard.Create_Set(Self, NotenPlayer,
 	  sca_x(120), sca_y(258), sca_x(559) , sca_y(294));
 
 	Keyboard.Parent := Self;
 	KeyBoard.KeyFilterActive := TRUE;
 	Noten:= TNotenSys.Create(Self, sca_x(133), sca_y(49), sca_x(535),
-	  sca_y(175), 3, path+'Grafik\Musik\',OwnPaletteHandle);
+	  sca_y(175), 3, path+'Grafik\Musik\');
 
 	Noten.Parent := Self;
 	Noten.Clickable := FALSE;
@@ -113,7 +113,6 @@ begin
 end;
 
 procedure TNoten_Spielen_Form.ziehen(Sender: TObject);
-var	i:Integer;
 begin
 	if Keyboard.Clickable then
 	begin

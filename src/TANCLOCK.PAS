@@ -22,19 +22,19 @@ type
 		autopaint:boolean;
 		Clickable, Aisenabled:Boolean;
 		Paintanzahl:Integer;
-		procedure paint;override;
-                procedure mark;
+		procedure Paint; override;
+		procedure mark;
 		procedure demark;
 		procedure KreisLinie(winkel, laenge : single; ACanvas:TCanvas);
 		constructor create_Set(AOwner: TComponent; ALeft, ATop, AWidth,
-		  AHeight:Integer; AWMFFileName:String; AFarbPalette:HPalette);
+		  AHeight:Integer; AWMFFileName:String);
 		destructor Destroy; override;
 		procedure MouseDown(Button: TMouseButton; Shift: TShiftState;
 		  X, Y: Integer); override;
 		procedure MouseUp(Button: TMouseButton; Shift: TShiftState;
 		  X, Y: Integer); override;
 		procedure SetTime(AStunde, AMinute:Integer);
-		procedure SetEnabled(Value: Boolean);
+		procedure SetEnabled(Value: Boolean); override;
 		function GetPalette: HPALETTE; override;
 	published
 		property OnClick;
@@ -46,10 +46,9 @@ procedure Register;
 implementation
 
 constructor TClock.create_Set(AOwner: TComponent; ALeft, ATop, AWidth,
-  AHeight:Integer; AWMFFileName:String; AFarbPalette:HPalette);
+  AHeight:Integer; AWMFFileName:String);
 begin
 	inherited Create(AOwner);
-	Farbpalette := AFarbpalette;
 	BG_Bild := TMetaFile.Create;
 	BG_Bild.LoadFromFile(AWMFFileName);
 	if AWidth > AHeight then
@@ -163,7 +162,7 @@ begin
 End;
 
 procedure TClock.paint;
-var	i:Integer;
+var
 	Stundenwinkel:single;
 	Buffer:TBitmap;
 begin

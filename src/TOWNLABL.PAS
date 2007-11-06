@@ -11,11 +11,11 @@ type
 	TOwnLabel = class(TGraphicControl)
 	private
 		marked:Boolean;
-                roundamount: Integer;
-		procedure paint; override;
+		roundamount: Integer;
+		procedure Paint; override;
 		procedure blink(Sender: TObject);
+
 	public
-		FarbPalette:HPalette;
 		caption, fontname:String;
 		Afontsize:Integer;
 		Timer:TTimer;
@@ -24,15 +24,13 @@ type
 		AColor:Array[0..1] of TColor;
 		ActualColor:Integer;
 		BlinkerSet:Integer;
-		constructor Create(AOwner: TComponent;
-                  AFarbPalette:HPalette);
+		constructor Create(AOwner: TComponent); override;
 		procedure SetCaption(ACaption:String);
 		procedure mark;
 		procedure demark;
 		procedure SetFontSize(Value: Integer);
-                procedure SetBounds(ALeft, ATop, AWidth, AHeight: Integer);
-                  override;
-		function GetPalette: HPALETTE; override;
+	procedure SetBounds(ALeft, ATop, AWidth, AHeight: Integer); override;
+
 	published
 		property Fontsize:Integer write SetFontSize;
 	end;
@@ -41,29 +39,23 @@ procedure Register;
 
 implementation
 
-constructor TOwnLabel.Create(AOwner: TComponent; AFarbPalette:HPalette);
+constructor TOwnLabel.Create(AOwner: TComponent);
 begin
 	inherited Create(AOwner);
-        FarbPalette := AFarbPalette;
 	marked := false;
-        Backcolor := $0282bc8c;
+	Backcolor := $0282bc8c;
 	AColor[0] := $0289fcfd;
 	AColor[1] := $02397148;
 	ActualColor := 0;
 end;
 
-function TOwnLabel.GetPalette: HPALETTE;
-begin
-	result := FarbPalette;
-end;
-
 procedure TOwnLabel.SetBounds(ALeft, ATop, AWidth, AHeight: Integer);
 begin
 	inherited SetBounds(ALeft, ATop, AWidth, AHeight);
-        if (width < height) then
-        	roundamount := width div 5
-        else
-        	roundamount := height div 5;
+	if (width < height) then
+		roundamount := width div 5
+	else
+		roundamount := height div 5;
 end;
 
 procedure TOwnLabel.SetCaption(ACaption:String);
@@ -82,19 +74,19 @@ begin
 end;
 
 procedure TOwnLabel.Paint;
-var	AText: Array[0..79]of Char;
+var
+	AText: Array[0..79]of Char;
+	RectCopy: TRect;
 begin
-    SelectPalette(Canvas.handle, FarbPalette, TRUE);
-    RealizePalette(Canvas.handle);
-    StrPCopy(Atext, Caption);
-    canvas.font.name := fontname;
-    canvas.font.size := Afontsize;
-    canvas.brush.color := AColor[ActualColor];
-    {canvas.Fillrect(Clientrect);}
-    canvas.pen.style := psclear;
-    canvas.roundrect(0, 0, width+1, height+1, roundamount, roundamount);
-    setbkmode(Canvas.handle, 1);
-    drawtext(canvas.handle, Atext, strlen(Atext), Clientrect, 53);
+	StrPCopy(Atext, Caption);
+	canvas.font.name := fontname;
+	canvas.font.size := Afontsize;
+	canvas.brush.color := AColor[ActualColor];
+	canvas.pen.style := psclear;
+	canvas.roundrect(0, 0, width+1, height+1, roundamount, roundamount);
+	setbkmode(Canvas.handle, 1);
+	RectCopy := Clientrect;
+	drawtext(canvas.handle, Atext, strlen(Atext), RectCopy, 53);
 end;
 
 procedure TOwnLabel.mark;

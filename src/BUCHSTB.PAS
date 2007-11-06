@@ -25,7 +25,6 @@ type
 		schonhilfegegeben :boolean;
 		knopf: array [1..10] of TColorButton;
 		flaeche: array[1..10] of TOwnLabel;
-		wortindex: Integer;
 		ad: TAufgabenData;
 		ParamsKnopf, ParamsFlaeche:Array[1..4] of Integer;
 	end;
@@ -43,18 +42,15 @@ begin
 	inherited FormCreate(Sender);
 	Load_BG_Image('Buchstb.wmf');
 	VGBild:= TOwnImage.Create_Setup(Self, sca_x(130), sca_y(111),
-	  sca_x(540), sca_y(378), OwnPaletteHandle);
+	  sca_x(540), sca_y(378));
         VGBild.Parent := Self;
 	ad := TAufgabenData.Create_Load(Self,path+'aufgaben.txt',
 	  'Buchstabensalat');
 	ad.RandListStart(ad.RAwList.count - 2);
 
-        SelectPalette(Canvas.handle, OwnPaletteHandle, FALSE);
-        RealizePalette(Canvas.handle);
-
 	for i := 1 to 10 do
 	begin
-		knopf[i] := TColorButton.Create(Self, OwnPaletteHandle);
+		knopf[i] := TColorButton.Create(Self);
 		with knopf[i] do
 		begin
 			Parent := Self;
@@ -62,7 +58,7 @@ begin
 			fontsize := sca_x(40);
 			fontname := 'Arial';
 		end;
-		flaeche[i] := TOwnLabel.Create(Self, OwnPaletteHandle);
+		flaeche[i] := TOwnLabel.Create(Self);
 		with flaeche[i] do
 		begin
 			Parent := Self;

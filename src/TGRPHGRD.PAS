@@ -15,12 +15,11 @@ type
 		public
 			Bilderanzahl:Integer;
 			bild:TBitmap;
-			FarbPalette:HPalette;
-			procedure paint; override;
+			procedure Paint; override;
 			constructor Create(AOwner: TComponent); override;
 			constructor Create_Setup(AOwner:TComponent;ATop, ALeft,
 			  AWidth, AHeight:Integer; Aspalten, Azeilen:Word;
-			  AContainer:TMetaFileContainer;AFarbPalette:HPalette);
+			  AContainer:TMetaFileContainer);
 			procedure Init(Anzahl: Integer);
 			procedure Init_Spread(grd1:TGraphicGrid; grd1_n:Integer;
 			  grd2:TGraphicGrid; grd2_n:Integer);
@@ -28,7 +27,7 @@ type
 			procedure ClearCell(ASpalte, AZeile: Integer);
 			procedure SetCell_XY(Aspalte, AZeile:Integer; 
 			  BildID:TMetaFile);
-			procedure SetCell_POS(Position: byte; BildID:TMetaFile);
+			procedure SetCell_POS(Position: integer; BildID:TMetaFile);
 			procedure Add_Picture(BildID:TMetaFile);
 			destructor Destroy; override;
 	end;
@@ -45,11 +44,9 @@ begin
 end;
 
 constructor TGraphicGrid.Create_Setup(AOwner: TComponent; ATop, ALeft, AWidth,
-  AHeight:Integer; Aspalten, Azeilen:Word; AContainer: TMetaFileContainer;
-  AFarbPalette: HPalette);
+  AHeight:Integer; Aspalten, Azeilen:Word; AContainer: TMetaFileContainer);
 begin
 	Create(AOwner);
-	FarbPalette := AFarbPalette;
 	if Aspalten = 0 then Aspalten := 1;
 	if Azeilen = 0 then Azeilen := 1;
 	Spalten := Aspalten;
@@ -74,7 +71,6 @@ end;
 
 destructor TGraphicGrid.Destroy;
 begin
-	Deleteobject(FarbPalette);
 	bild.free;
 	inherited Destroy;
 end;
@@ -86,32 +82,17 @@ begin
 		BildID.Width := 
 		  Round(Bild.Width / Spalten * 96 / screen.pixelsperinch);
 		BildID.Height := Bild.Height div Zeilen;
-		selectPalette(Bild.Canvas.handle, FarbPalette, FALSE);
 		Bild.Canvas.Draw((Bild.Width div Spalten) * (ASpalte - 1),
 		  (Bild.Height div Zeilen) * (AZeile - 1), BildID);
 	end;
 	inc(Bilderanzahl);
 end;
 
-procedure TGraphicGrid.SetCell_POS(Position: byte; BildID:TMetaFile);
-var	x_Pos, y_Pos:byte;
-	z:word;
+procedure TGraphicGrid.SetCell_POS(Position: integer; BildID:TMetaFile);
+var	x_Pos, y_Pos: integer;
 begin
-	z := Zeilen;
-	asm
-		xor AH, AH
-		mov al, Position
-		mov bx, z
-		div bl
-		inc al
-		cmp ah, 0
-		jnz @weiter
-		mov ah, bl
-		dec al
-		@weiter:
-		mov x_pos, al
-		mov y_pos, ah
-	end;
+	x_Pos := ((Position - 1) div 5) + 1;
+	y_Pos := ((Position - 1) mod 5) + 1;
 	SetCell_XY(x_Pos, y_Pos, BildID);
 end;
 
@@ -129,7 +110,8 @@ begin
 end;
 
 procedure TGraphicGrid.Init(Anzahl: Integer);
-var 	i, BildID:Integer;
+var
+	i: Integer;
 begin
 	Clear;
 	For i := 1 to Anzahl do
@@ -172,8 +154,6 @@ end;
 procedure TGraphicGrid.Paint;
 begin
 	inherited paint;
-	selectPalette(Canvas.handle, FarbPalette, FALSE);
-	realizepalette(Canvas.handle);
 	Canvas.Stretchdraw(Drawrect, bild);
 end;
 

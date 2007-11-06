@@ -9,7 +9,6 @@ uses
 type
 	TKeyBoard = class(TGraphicControl)
 		private
-			KeyboardBtn, KeyboardBtn2:TKeyboardTaste;
 			NotenPlayer:TNotenPlayer;
 			FarbPalette: HPalette;
 		public
@@ -19,15 +18,14 @@ type
 			KeyFilter:Integer;
 			AIsEnabled:Boolean;
 			Clickable:Boolean;
-			constructor Create_Set(AOwner:TComponent; 
-			  AFarbPalette: HPalette; ANotenPlayer:TNotenPlayer; 
+			constructor Create_Set(AOwner:TComponent; ANotenPlayer:TNotenPlayer;
 			  ALeft, ATop, AWidth, AHeight:Integer);
 			destructor Destroy; override;
 			function GetPalette: HPALETTE; override;
 			procedure Action(id:Integer);
 			procedure MouseDown(Button: TMouseButton;
 			  Shift: TShiftState; X, Y: Integer);override;
-			procedure paint; override;
+			procedure Paint; override;
 			Procedure MarkButton(ButtonId:Integer; 
 			  modus, APaint:Boolean);
 			Procedure SetIsEnabled(Value:Boolean);
@@ -42,8 +40,8 @@ procedure Register;
 
 implementation
 
-constructor TKeyBoard.Create_Set(AOwner: TComponent; AFarbPalette:
-  HPalette; ANotenPlayer:TNotenPlayer; ALeft, ATop, AWidth, AHeight:Integer);
+constructor TKeyBoard.Create_Set(AOwner: TComponent;
+  ANotenPlayer:TNotenPlayer; ALeft, ATop, AWidth, AHeight:Integer);
 var	i, schw_kn_breite:Integer;
 	Y_sca:Real;
 begin
