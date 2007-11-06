@@ -25,7 +25,6 @@ type
 		schonhilfegegeben :boolean;
 		knopf: array [1..10] of TColorButton;
 		flaeche: array[1..10] of TOwnLabel;
-		wortindex: Integer;
 		ad: TAufgabenData;
 		ParamsKnopf, ParamsFlaeche:Array[1..4] of Integer;
 	end;

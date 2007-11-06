@@ -9,7 +9,6 @@ uses
 type
 	TKeyBoard = class(TGraphicControl)
 		private
-			KeyboardBtn, KeyboardBtn2:TKeyboardTaste;
 			NotenPlayer:TNotenPlayer;
 			FarbPalette: HPalette;
 		public
@@ -26,7 +25,7 @@ type
 			procedure Action(id:Integer);
 			procedure MouseDown(Button: TMouseButton;
 			  Shift: TShiftState; X, Y: Integer);override;
-			procedure paint; override;
+			procedure Paint; override;
 			Procedure MarkButton(ButtonId:Integer; 
 			  modus, APaint:Boolean);
 			Procedure SetIsEnabled(Value:Boolean);

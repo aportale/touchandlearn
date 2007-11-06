@@ -18,7 +18,6 @@ type
 		ad:TAufgabenData;
 		Noten_name:TOwnLabel;
 		Noten:Array[1..4] of TNotenSys;
-		bild: TMetaFile;
 		PlayNote:Integer;
 		procedure ziehen(Sender: TObject);
 		procedure PlayKnopfClick(Sender: TObject);
@@ -33,7 +32,8 @@ implementation
 {$R *.DFM}
 
 procedure TNoten_Lesen_Form.FormCreate(Sender: TObject);
-var	i, j:Integer;
+var
+	i: Integer;
 begin
 	inherited FormCreate(Sender);
 	load_bg_image('musik_1.wmf');

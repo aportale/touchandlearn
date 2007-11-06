@@ -11,8 +11,8 @@ type
 	TOwnLabel = class(TGraphicControl)
 	private
 		marked:Boolean;
-    roundamount: Integer;
-		procedure paint; override;
+		roundamount: Integer;
+		procedure Paint; override;
 		procedure blink(Sender: TObject);
 
 	public
@@ -24,12 +24,12 @@ type
 		AColor:Array[0..1] of TColor;
 		ActualColor:Integer;
 		BlinkerSet:Integer;
-		constructor Create(AOwner: TComponent);
+		constructor Create(AOwner: TComponent); override;
 		procedure SetCaption(ACaption:String);
 		procedure mark;
 		procedure demark;
 		procedure SetFontSize(Value: Integer);
-    procedure SetBounds(ALeft, ATop, AWidth, AHeight: Integer); override;
+	procedure SetBounds(ALeft, ATop, AWidth, AHeight: Integer); override;
 
 	published
 		property Fontsize:Integer write SetFontSize;
@@ -43,7 +43,7 @@ constructor TOwnLabel.Create(AOwner: TComponent);
 begin
 	inherited Create(AOwner);
 	marked := false;
-  Backcolor := $0282bc8c;
+	Backcolor := $0282bc8c;
 	AColor[0] := $0289fcfd;
 	AColor[1] := $02397148;
 	ActualColor := 0;
@@ -52,10 +52,10 @@ end;
 procedure TOwnLabel.SetBounds(ALeft, ATop, AWidth, AHeight: Integer);
 begin
 	inherited SetBounds(ALeft, ATop, AWidth, AHeight);
-        if (width < height) then
-        	roundamount := width div 5
-        else
-        	roundamount := height div 5;
+	if (width < height) then
+		roundamount := width div 5
+	else
+		roundamount := height div 5;
 end;
 
 procedure TOwnLabel.SetCaption(ACaption:String);
@@ -76,14 +76,13 @@ end;
 procedure TOwnLabel.Paint;
 var	AText: Array[0..79]of Char;
 begin
-    StrPCopy(Atext, Caption);
-    canvas.font.name := fontname;
-    canvas.font.size := Afontsize;
-    canvas.brush.color := AColor[ActualColor];
-    {canvas.Fillrect(Clientrect);}
-    canvas.pen.style := psclear;
-    canvas.roundrect(0, 0, width+1, height+1, roundamount, roundamount);
-    setbkmode(Canvas.handle, 1);
+	StrPCopy(Atext, Caption);
+	canvas.font.name := fontname;
+	canvas.font.size := Afontsize;
+	canvas.brush.color := AColor[ActualColor];
+	canvas.pen.style := psclear;
+	canvas.roundrect(0, 0, width+1, height+1, roundamount, roundamount);
+	setbkmode(Canvas.handle, 1);
 end;
 
 procedure TOwnLabel.mark;

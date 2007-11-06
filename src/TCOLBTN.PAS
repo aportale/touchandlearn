@@ -11,21 +11,20 @@ type
 	TColorButton = class(TGraphicControl)
 
 	private
-		Farbe:Array[1..4] of TColorRef;
 		unpressed: boolean;
 		FarbPalette: HPalette;
-    Timer: TTimer;
-    procedure blink(Sender: TObject);
-		procedure paint; override;
+		Timer: TTimer;
+		procedure blink(Sender: TObject);
+		procedure Paint; override;
 
 	public
-    marked:boolean;
+		marked:boolean;
 		highlighted:boolean;
 		Backbuffering:boolean;
 		caption, fontname:String;
 		afontsize:Integer;
 		AClickable, AIsenabled:Boolean;
-		constructor Create(AOwner: TComponent);
+		constructor Create(AOwner: TComponent); override;
 		destructor Destroy; override;
 		procedure MouseDown(Button: TMouseButton;
 		  Shift: TShiftState; X, Y: Integer); override;
@@ -140,7 +139,6 @@ end;
 
 procedure TColorButton.Paint;
 var	AText: Array[0..79]of Char;
-	i:Integer;
 	Buffer:TBitmap;
 	MyCanvas:TCanvas;
 begin

@@ -113,7 +113,6 @@ begin
 end;
 
 procedure TNoten_Spielen_Form.ziehen(Sender: TObject);
-var	i:Integer;
 begin
 	if Keyboard.Clickable then
 	begin

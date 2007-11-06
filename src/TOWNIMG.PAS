@@ -11,7 +11,7 @@ type
 	private
 		WMFbild:TMetaFile;
 	public
-		procedure paint; override;
+		procedure Paint; override;
 		constructor Create(AOwner: TComponent); override;
 		constructor Create_Setup(AOwner: TComponent; ATop, ALeft, 
 		  AWidth, AHeight:Integer);

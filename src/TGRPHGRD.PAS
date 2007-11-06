@@ -15,7 +15,7 @@ type
 		public
 			Bilderanzahl:Integer;
 			bild:TBitmap;
-			procedure paint; override;
+			procedure Paint; override;
 			constructor Create(AOwner: TComponent); override;
 			constructor Create_Setup(AOwner:TComponent;ATop, ALeft,
 			  AWidth, AHeight:Integer; Aspalten, Azeilen:Word;
@@ -110,7 +110,8 @@ begin
 end;
 
 procedure TGraphicGrid.Init(Anzahl: Integer);
-var 	i, BildID:Integer;
+var
+	i: Integer;
 begin
 	Clear;
 	For i := 1 to Anzahl do

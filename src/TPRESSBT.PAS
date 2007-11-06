@@ -14,7 +14,7 @@ type
 		ungedrueckt:boolean;
 		PaintModus:Integer;
 	public
-		procedure paint; override;
+		procedure Paint; override;
 		constructor Create(AOwner: TComponent); override;
 		constructor Create_Set(AOwner: TComponent;
 		  APaintmodus:Integer);

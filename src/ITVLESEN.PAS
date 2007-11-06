@@ -18,7 +18,6 @@ type
 		PlayNote:Array[1..2] of Integer;
 		ad:TAufgabenData;
 		Noten:TNotenSys;
-		bild: TMetaFile;
 		knopf: array [1..3] of TColorButton;
 		procedure ziehen(Sender: TObject);
 		procedure nochmalknopfClick(Sender: TObject);
@@ -70,7 +69,8 @@ begin
 end;
 
 procedure TIntervalle_Lesen_Form.initialisierung;
-Var	ZufallsZahl, i:Integer;
+Var
+	i:Integer;
 	Aufgabe:Array[1..3]Of Integer;
 Begin
 	For i := 1 to 3 do

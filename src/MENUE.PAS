@@ -18,7 +18,6 @@ type
 		NextMenuButton, LastMenuButton:TWMFPressButton;
 		AktMenuPage:Integer;
 		procedure getMenuButtons(Menueseite:Integer);
-		procedure DropMenuButtons;
 		procedure Add_10_Click(Sender: TObject);
 		procedure Sub_10_Click(Sender: TObject);
 		procedure executeLesson(Form: TForm);
@@ -30,7 +29,6 @@ type
 		procedure Noten_Spielen_Click(Sender: TObject);
 		procedure Uhr1_Click(Sender: TObject);
 		procedure Uhr2_Click(Sender: TObject);
-		procedure Leer_Click(Sender: TObject);
 		procedure NextPage(Sender: TObject);
 		procedure LastPage(Sender: TObject);
 		procedure RepaintButtons;
@@ -113,11 +111,6 @@ begin
 	executeLesson(Uhr2_Form);
 end;
 
-procedure TMenue_Form.Leer_Click(Sender: TObject);
-begin
-	playsound(SND_FALSCH);
-end;
-
 procedure TMenue_Form.getMenuButtons(Menueseite:Integer);
 begin
 	case Menueseite of
@@ -162,10 +155,6 @@ begin
 		LastMenuButton.visible := true;
 	End;
 	end; {case}
-end;
-
-procedure TMenue_Form.DropMenuButtons;
-begin
 end;
 
 procedure TMenue_Form.FormCreate(Sender: TObject);

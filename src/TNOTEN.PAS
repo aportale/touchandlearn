@@ -18,13 +18,13 @@ type
 		Notenanzahl, Spaltenanzahl, Rahmendicke:Integer;
 		NotenData:ARRAY[1..8]of TNotenData;
 		Paintanzahl:Integer;
-        	Timer :TTimer;
-        	procedure blink(Sender: TObject);
+		Timer :TTimer;
+		procedure blink(Sender: TObject);
 	public
-        	highlighted, marked:boolean;
+		highlighted, marked:boolean;
 		unpressed, Aclickable, AIsenabled:boolean;
 		MarkierteSpalte:Integer;
-		procedure paint; override;
+		procedure Paint; override;
 		procedure MouseDown(Button: TMouseButton;
 		  Shift: TShiftState; X, Y: Integer); override;
 		procedure MouseUp(Button: TMouseButton;
@@ -134,8 +134,8 @@ begin
 	if (Button = mbLeft)and Aclickable then
 	begin
 		unpressed := false;
-        highlighted := true;
-        demark;
+		highlighted := true;
+		demark;
 		paint;
 	end;
 end;
@@ -146,8 +146,8 @@ begin
 	if (Button = mbLeft)and not(unpressed) then
 	begin
 		unpressed := true;
-        highlighted := false;
-        demark;
+		highlighted := false;
+		demark;
 		paint;
 	end;
 end;
@@ -198,9 +198,9 @@ Begin
 			  Clientrect.Right-Rahmendicke,
 			  Clientrect.Bottom-Rahmendicke));}
 			Buffer.Canvas.Roundrect(Rahmendicke, Rahmendicke,
-                          width+1-Rahmendicke, height+1-Rahmendicke,
-                          RahmenDicke, RahmenDicke);
-                        Buffer.Canvas.Pen.style := pssolid;
+			  width+1-Rahmendicke, height+1-Rahmendicke,
+			  RahmenDicke, RahmenDicke);
+			Buffer.Canvas.Pen.style := pssolid;
 		end
 		else
 		begin
@@ -211,17 +211,13 @@ Begin
 		if MarkierteSpalte >= 0 then
 		begin
 			Buffer.Canvas.Brush.Color := PaletteIndex(2);
-			{Buffer.Canvas.Fillrect(rect(Round(Markier_y_Offset+
-			  MarkierteSpalte*(spaltenabstand)),0,
-			  Round(Markier_y_Offset+MarkierteSpalte*
-			  (spaltenabstand)+Markier_Breite), height));}
-                        Buffer.Canvas.Pen.style := psclear;
-                        Buffer.Canvas.Roundrect(Round(Markier_y_Offset+
+			Buffer.Canvas.Pen.style := psclear;
+			Buffer.Canvas.Roundrect(Round(Markier_y_Offset+
 			  MarkierteSpalte*(spaltenabstand)),0,
 			  Round(Markier_y_Offset+MarkierteSpalte*
 			  (spaltenabstand)+Markier_Breite), height,
-                          Rahmendicke*4, Rahmendicke*4);
-                        Buffer.Canvas.Pen.style := pssolid;
+			  Rahmendicke*4, Rahmendicke*4);
+			Buffer.Canvas.Pen.style := pssolid;
 		end;
 		Buffer.Canvas.Pen.width := 2;
 		Buffer.Canvas.Pen.Color := clblack;
@@ -257,13 +253,13 @@ Begin
 				  NotenData[i].Spalte*SpaltenAbstand+
 				  B_x_offset), Round(B_y_offset+(9-
 				  NotenData[i].Zeile)*Linienabstand), BWMF);
-			    end;
+				end;
 			1:  begin
 				Buffer.Canvas.Draw(Round(SpaltenOffset+
 				  NotenData[i].Spalte*SpaltenAbstand+
 				  Zaun_x_offset),Round(Zaun_y_offset+(9-
 				  NotenData[i].Zeile)*Linienabstand), ZaunWMF);
-			    end;
+				end;
 			end;
 		end;
 		if not AIsenabled then
@@ -280,13 +276,13 @@ end;
 procedure TNotenSys.mark;
 begin
 	if not(marked) then
-    begin
-        Timer := TTimer.Create(Parent);
+	begin
+		Timer := TTimer.Create(Parent);
 		Timer.Interval := 350;
 		Timer.onTimer := blink;
 		Timer.enabled := true;
 		highlighted := true;
-        marked := true;
+		marked := true;
 		paint;
 	end;
 end;
@@ -294,9 +290,9 @@ end;
 procedure TNotenSys.demark;
 begin
 	if marked then
-    begin
+	begin
 		marked := false;
-        highlighted := false;
+		highlighted := false;
 		Timer.Free;
 		paint;
 	end;
