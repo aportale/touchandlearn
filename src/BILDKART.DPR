@@ -2,9 +2,10 @@ program Bildkart;
 
 uses
   Forms,
-  Setuppas in 'SETUPPAS.PAS' {SetupForm},
-  S_wmfpic in 'S_WMFPIC.PAS' {WMFPicker},
-  S_hilfe in 'S_HILFE.PAS' {HilfeFenster};
+  SETUPPAS in 'SETUPPAS.PAS' {SetupForm},
+  S_WMFPIC in 'S_WMFPIC.PAS' {WMFPicker},
+  S_HILFE in 'S_HILFE.PAS' {HilfeFenster},
+  TMFCNTNR in 'TMFCNTNR.PAS';
 
 {$R *.RES}
 
