@@ -1,7 +1,5 @@
 program Lernprog;
 
-
-
 uses
   Forms,
   RECHNEN in 'RECHNEN.PAS' {Rechnen_Form},

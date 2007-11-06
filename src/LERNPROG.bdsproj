@@ -167,5 +167,4 @@
 			<VersionInfoKeys Name="Comments"></VersionInfoKeys>
 		</VersionInfoKeys>
 	</Delphi.Personality>
-	<ModelSupport>True</ModelSupport>
 </BorlandProject>
