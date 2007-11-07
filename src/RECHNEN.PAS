@@ -36,7 +36,6 @@ type
 var	Rechnen_Form: TRechnen_Form;
 
 implementation
-{$R *.DFM}
 
 procedure TRechnen_Form.FormCreate(Sender: TObject);
 var	i, j:Integer;

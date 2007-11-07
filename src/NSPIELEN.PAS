@@ -32,7 +32,6 @@ type
 var	Noten_Spielen_Form: TNoten_Spielen_Form;
 
 implementation
-{$R *.DFM}
 
 procedure TNoten_Spielen_Form.FormCreate(Sender: TObject);
 begin

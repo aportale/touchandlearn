@@ -34,7 +34,6 @@ var	Buchstaben_Form: TBuchstaben_Form;
 implementation
 var	wort:String[10];
 	akt_buchstabe:Integer;
-{$R *.DFM}
 
 procedure TBuchstaben_Form.FormCreate(Sender: TObject);
 var	i:Integer;

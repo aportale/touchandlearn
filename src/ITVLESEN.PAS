@@ -28,7 +28,6 @@ type
 var	Intervalle_Lesen_Form: TIntervalle_Lesen_Form;
 
 implementation
-{$R *.DFM}
 
 procedure TIntervalle_Lesen_Form.FormCreate(Sender: TObject);
 var	i:Integer;

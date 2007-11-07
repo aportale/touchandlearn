@@ -33,7 +33,6 @@ type
 var	Beschriften_Form: TBeschriften_Form;
 
 implementation
-{$R *.DFM}
 
 procedure TBeschriften_Form.FormCreate(Sender: TObject);
 var	i:Integer;

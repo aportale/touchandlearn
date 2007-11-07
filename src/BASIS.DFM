@@ -11,8 +11,11 @@ object Basis_Form: TBasis_Form
   Font.Name = 'System'
   Font.Style = []
   OldCreateOrder = True
+  WindowState = wsMaximized
+  BorderStyle = bsNone
   OnClose = FormClose
   OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 16
 end

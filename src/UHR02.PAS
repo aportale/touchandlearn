@@ -26,7 +26,6 @@ var
 	Uhr2_Form: TUhr2_Form;
 
 implementation
-{$R *.DFM}
 
 procedure TUhr2_Form.FormCreate(Sender: TObject);
 var	i:Integer;

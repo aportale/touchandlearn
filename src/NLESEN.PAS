@@ -29,7 +29,6 @@ type
 var	Noten_Lesen_Form: TNoten_Lesen_Form;
 
 implementation
-{$R *.DFM}
 
 procedure TNoten_Lesen_Form.FormCreate(Sender: TObject);
 var
