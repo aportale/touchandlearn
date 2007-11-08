@@ -18,8 +18,7 @@ type
 		Aufgabe_Laeuft:boolean;
 		MediaPlayer:TMediaPlayer;
 		NotenPlayer:TNotenPlayer;
-                schonhilfegegeben:boolean;
-                (*dummy:TOwnLabel;*)
+		schonhilfegegeben:boolean;
 		procedure Load_BG_Image(Filename: String);
 	end;
 
@@ -59,9 +58,6 @@ begin
 	musicButton.Parent := self;
 	musicButton.SetBounds(sca_x(6), sca_y(320), sca_x(80), sca_y(80));
 	musicButton.hide;
-
-        (*dummy := TOwnLabel.Create(Self, OwnPaletteHandle);
-        dummy.parent := Self;*)
 end;
 
 procedure TBasis_Form.FormClose(Sender: TObject; var Action: TCloseAction);

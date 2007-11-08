@@ -12,8 +12,10 @@ type
 	private
 		marked:Boolean;
 		roundamount: Integer;
-		procedure Paint; override;
 		procedure blink(Sender: TObject);
+
+	protected
+		procedure Paint; override;
 
 	public
 		caption, fontname:String;

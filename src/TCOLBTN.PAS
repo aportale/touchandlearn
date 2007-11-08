@@ -15,6 +15,8 @@ type
 		FarbPalette: HPalette;
 		Timer: TTimer;
 		procedure blink(Sender: TObject);
+
+	protected
 		procedure Paint; override;
 
 	public
@@ -143,9 +145,9 @@ var	AText: Array[0..79]of Char;
 	MyCanvas:TCanvas;
 	RectCopy: TRect;
 begin
+	Buffer := TBitmap.Create;
 	if Backbuffering then
 	begin
-		Buffer := TBitmap.Create;
 		MyCanvas := Buffer.Canvas;
 	end
 	else MyCanvas := Canvas;
@@ -155,8 +157,6 @@ begin
 			Buffer.Height := Height;
 			Buffer.Width := Width;
 		end;
-		SelectPalette(MyCanvas.handle, FarbPalette, FALSE);
-		RealizePalette(MyCanvas.handle);
 		if visible then
 		begin
 			StrPCopy(Atext, Caption);
@@ -238,7 +238,7 @@ begin
 			Canvas.Draw(0, 0, Buffer);
 	finally
 		if Backbuffering then
-		Buffer.free;
+			Buffer.free;
 	end;
 end;
 
