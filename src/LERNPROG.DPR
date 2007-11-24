@@ -30,7 +30,7 @@ uses
 {$R *.RES}
 
 begin
-  Application.Title := 'Lernprogramm';
+  Application.Title := 'Touch ''n learn';
   Application.CreateForm(TMenue_Form, Menue_Form);
   Application.Run;
 end.
