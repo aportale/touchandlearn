@@ -32,13 +32,15 @@ WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 Source: ..\src\LERNPROG.exe; DestDir: {app}; DestName: touchandlearn.exe
 Source: ..\src\AUFGABEN.TXT; DestDir: {app}
 Source: readme.html; DestDir: {app}
-Source: ..\src\GRAFIK\*; DestDir: {app}\GRAFIK; Excludes: .svn; Flags: recursesubdirs
-Source: ..\src\SOUND\*; DestDir: {app}\SOUND; Excludes: .svn; Flags: recursesubdirs
+Source: license.rtf; DestDir: {app}
+Source: ..\src\GRAFIK\*; DestDir: {app}\GRAFIK; Excludes: .svn; Flags: recursesubdirs sortfilesbyextension
+Source: ..\src\SOUND\*; DestDir: {app}\SOUND; Excludes: .svn; Flags: recursesubdirs sortfilesbyextension
 
 [Icons]
 Name: {group}\Touch 'n learn; Filename: {app}\touchandlearn.exe; WorkingDir: {app}; IconFilename: {app}\touchandlearn.exe
 Name: {group}\Deinstallieren; Filename: {uninstallexe}; WorkingDir: {app}
 Name: {group}\Liesmich; Filename: {app}\readme.html
+Name: {group}\Lizenz; Filename: {app}\license.rtf
 
 [Run]
 Filename: {app}\touchandlearn.exe; WorkingDir: {app}; Flags: postinstall
