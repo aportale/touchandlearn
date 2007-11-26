@@ -2,19 +2,19 @@ A
 {
 	color : #330000;
 	background-color : #FFFFCC;
-}			
+}
 
 A:Visited
 {
 	color : #330000;
 	background-color : #FFFFCC;
-}			
+}
 
 A:Hover, A.external:Hover
 {
 	color : #FFFFCC;
 	background-color : #666633;
-}			
+}
 
 A.external
 {

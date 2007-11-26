@@ -5,6 +5,11 @@
 	$lang = $_GET['lang'] == DE?DE:EN;
 	$page = isset($_GET['page'])?strtolower($_GET['page']):"about";
 	
+	function tagLine()
+	{
+		return text('Low-barrier primary school lessons', 'Barrierearme Grundschul&uuml;bungen');
+	}
+
 	function text($englishString, $germanString)
 	{
 		global $lang;
@@ -52,13 +57,13 @@
 ?>
 				<h2><? text('License', 'Lizenz'); ?></h2>
 				<p>
-					Touch 'n learn - <? text('Low-barrier lessons for the primary school.', 'Barrierearme &Uuml;bungen f&uuml;r die Grundschule.'); ?><br />
-					Copyright (C) 2005-2007 by Alessandro Portale<br />
-					<a class="external" href="http://posterazor.sourceforge.net/<? text('', '?lang=german'); ?>">http://posterazor.sourceforge.net/</a>
+					Touch'n'learn - <? tagLine() ?><br />
+					Copyright (C) 1998, 2007 by Alessandro Portale<br />
+					<a class="external" href="http://touchandlearn.sourceforge.net/<? text('', '?lang=german'); ?>">http://touchandlearn.sourceforge.net/</a>
 				</p>
 				<? text('', '<p><em>Der folgende Lizenztext ist in seiner englischen Originalfassung aufgef&uuml;hrt, da die <a class="external" href="http://www.gnu.de/gpl-ger.html">deutsche &Uuml;bersetzung</a> nicht offiziell oder im rechtlichen Sinne anerkannt ist.</em></p>'); ?>
-				<p>PosteRazor is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by	the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
-				<p>PosteRazor is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the <a class="external" href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a> for more details.</p>
+				<p>Touch'n'learn is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
+				<p>Touch'n'learn is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the <a class="external" href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a> for more details.</p>
 <?
 			break;
 			default:
@@ -77,9 +82,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<meta name="author" content="Alessandro Portale" />
-		<meta name="description" content="Touch 'n learn - <? text('Low-barrier lessons for the primary school.', 'Barrierearme &Uuml;bungen f&uuml;r die Grundschule.'); ?>" />
+		<meta name="description" content="Touch 'n learn - <? tagLine(); ?>" />
 		<meta name="keywords" content="learn, education, handicapped, application, tool, app, free, freeware" />
-		<title>PosteRazor - <? text('Low-barrier lessons for the primary school.', 'Barrierearme &Uuml;bungen f&uuml;r die Grundschule.') ?></title>
+		<title>Touch'n'learn - <? tagLine() ?></title>
 		<style type="text/css" media="all">
 			@import "style.css";
 		</style>
@@ -87,11 +92,12 @@
 	<body>
 		<div id="page">
 			<div id="header">
-				<div id="title">Touch 'n learn</div><div id="tagline"><? text('Low-barrier lessons for the primary school.', 'Barrierearme &Uuml;bungen f&uuml;r die Grundschule.'); ?></div>
+				<div id="title">Touch'n'learn</div><div id="tagline"><? tagLine() ?></div>
 				<a href="<?=linkParameters("","english")?>"><img src="flagEnglish<? text('_selected', ''); ?>.png" width="26" height="17" alt="English" /></a><a href="<?=linkParameters("","german")?>"><img src="flagGerman<? text('', '_selected'); ?>.png" width="26" height="17" alt="Deutsch" /></a>
 			</div>
 			<div id="navigation">
-				<ul id="navigationlist"><li><a href="<?=linkParameters("about","")?>"<?=conditionalSelectedClass("about")?>><? text('About', '&Uuml;ber'); ?></a></li><li><a href="<?=linkParameters("lessons","")?>"<?=conditionalSelectedClass("lessons")?>><? text('Lessons', '&Uuml;bungen'); ?></a></li><li><a href="<?=linkParameters("screenshots","")?>"<?=conditionalSelectedClass("screenshots")?>><? text('Screenshots', 'Bildschirmfotos'); ?></a></li><li><a href="http://www.google.com"><? text('Download', 'Herunterladen'); ?></a></li><li><a href="<?=linkParameters("thirdparty","")?>"<?=conditionalSelectedClass("thirdparty")?>><? text('Third&nbsp;party&nbsp;code', 'Code&nbsp;von&nbsp;Dritten'); ?></a></li><li><a href="<?=linkParameters("license","")?>"<?=conditionalSelectedClass("license")?>><? text('License', 'Lizenz'); ?></a></li></ul>
+				<ul id="navigationlist"><li><a href="<?=linkParameters("about","")?>"<?=conditionalSelectedClass("about")?>><? text('About', '&Uuml;ber'); ?></a></li><li><a href="<?=linkParameters("lessons","")?>"<?=conditionalSelectedClass("lessons")?>><? text('Lessons', '&Uuml;bungen'); ?></a></li><li><a href="<?=linkParameters("screenshots","")?>"<?=conditionalSelectedClass("screenshots")?>><? text('Screenshots', 'Bildschirmfotos'); ?></a></li><li><a href="<?=linkParameters("license","")?>"<?=conditionalSelectedClass("license")?>><? text('License', 'Lizenz'); ?></a></li></ul>
+				<a class="external" href="http://www.google.com"><? text('Download', 'Herunterladen'); ?></a>
 				<a class="external" href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=209276&amp;type=1" width="88" height="31" alt="SF.net Logo" /></a>
 				<a class="external" href="http://sourceforge.net/projects/touchandlearn/"><? text('SF project page', 'SF Projekt-Seite'); ?></a>
 			</div>
