@@ -193,10 +193,6 @@ Begin
 			Buffer.Canvas.Roundrect(0, 0, width+1, height+1,
                           RahmenDicke*3, RahmenDicke*3);
 			Buffer.Canvas.Brush.Color := clWHITE;
-			{Buffer.Canvas.Fillrect(rect(Clientrect.Left+Rahmendicke,
-			  Clientrect.Top+Rahmendicke,
-			  Clientrect.Right-Rahmendicke,
-			  Clientrect.Bottom-Rahmendicke));}
 			Buffer.Canvas.Roundrect(Rahmendicke, Rahmendicke,
 			  width+1-Rahmendicke, height+1-Rahmendicke,
 			  RahmenDicke, RahmenDicke);
@@ -210,7 +206,7 @@ Begin
 		Buffer.Canvas.Draw(0, 0, NotenSWMF);
 		if MarkierteSpalte >= 0 then
 		begin
-			Buffer.Canvas.Brush.Color := PaletteIndex(2);
+			Buffer.Canvas.Brush.Color := RGB(230, 210, 170);
 			Buffer.Canvas.Pen.style := psclear;
 			Buffer.Canvas.Roundrect(Round(Markier_y_Offset+
 			  MarkierteSpalte*(spaltenabstand)),0,
