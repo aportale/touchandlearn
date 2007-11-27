@@ -155,16 +155,16 @@
 			<VersionInfo Name="CodePage">1252</VersionInfo>
 		</VersionInfo>
 		<VersionInfoKeys>
-			<VersionInfoKeys Name="CompanyName">CasaPortale.de</VersionInfoKeys>
-			<VersionInfoKeys Name="FileDescription">Ein Lernprogram fuer koerperlich behinderte Kinder</VersionInfoKeys>
+			<VersionInfoKeys Name="CompanyName">Alessandro Portale CasaPortale.de</VersionInfoKeys>
+			<VersionInfoKeys Name="FileDescription">Barrierearme Grundschulübungen</VersionInfoKeys>
 			<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
 			<VersionInfoKeys Name="InternalName"></VersionInfoKeys>
-			<VersionInfoKeys Name="LegalCopyright">Alessandro Portale 1998, 2007</VersionInfoKeys>
+			<VersionInfoKeys Name="LegalCopyright">Copyright (C) 1998, 2007 Alessandro Portale </VersionInfoKeys>
 			<VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys>
 			<VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys>
-			<VersionInfoKeys Name="ProductName">Touch 'n learn</VersionInfoKeys>
+			<VersionInfoKeys Name="ProductName">Touch'n'learn</VersionInfoKeys>
 			<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
-			<VersionInfoKeys Name="Comments"></VersionInfoKeys>
+			<VersionInfoKeys Name="Comments">Touch'n'learn, (C) 1998, 2007 Alessandro Portale, GNU General Public License</VersionInfoKeys>
 		</VersionInfoKeys>
 	</Delphi.Personality>
 </BorlandProject>
