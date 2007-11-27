@@ -38,18 +38,13 @@
 
 		switch ($page)
 		{
-			case 'lessons':
-?>
-				<h2><? text('Lessons', '&Uuml;bungen'); ?></h2>
-				<ul>
-				</ul>
-<?
-			break;
 			case 'screenshots':
 ?>
 				<h2><? text('Screenshots', 'Bildschirmfotos'); ?></h2>
 				<div id="screenshotthumbs">
-					<a href="screenshot_<?=$lang?>_step01.png"><img src="screenshotthumb_step01.png" width="120" height="92" alt="Step 1" /><br /><? text('Step', 'Schritt'); ?> 1</a>
+					<a href="screenshot_<?=$lang?>_step01.png"><img src="screenshotthumb_step01.png" width="120" height="92" alt="Step 1" /><br />
+						<? text('Step', 'Schritt'); ?> 1 asdfasdf
+					</a>
 				</div>
 <?
 			break;
