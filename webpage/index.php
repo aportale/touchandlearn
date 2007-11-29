@@ -78,6 +78,8 @@
 			default:
 ?>
 				<h2><?= text('About', '&Uuml;ber'); ?></h2>
+				<?= text('<p>An educative software for physically challenged children. It contains ten learning modules covering "reading", "spelling", "counting", "addition", "subtraction", "reading notes", "determining tone intervalls", "playing piano keyboard" and "reading clocks". The program is especially suited for physically handicapped children, because it is also possible to use it completely with a touch screen. The elements of the user interface are big and clear.</p><p>The software was created during a practical semestre. Since a few years, the <a href="http://www.luckenberger-schule.de/">Luckenberger elementary school</a> in <a href="http://www.stadt-brb.de/stadt-brandenburg/">Brandenburg an der Havel</a> integrates physically challenged children into the lessons. This software was concepted together with Heiko Nachtigall, the vice president of the school.</p><p>When a physically challenged child has problems using pen and paper or other pedagogical material, it may happen that th child stays behind other children with its learning pensum. Using the hands when is are very essential for learning at the age of 6 or 7. A learning program which is really easy to use with a touch screen and has big and uncomplicated user interface elements could maybe compensate those motorical problems a little bit.</p>',
+'<p>Ein Lernprogramm für körperlich behinderte Grundschulkinder. In zehn Lerneinheiten werden die Themen "Lesen", "Buchstabieren", "Zählen", "Addition", "Subtraktion", "Noten lesen", "Noten-Intervalle bestimmen", "Klavier spielen" und "Uhren Lesen" behandelt. Das Programm ist besonders für körperlich behinderte Kinder geeignet, da die Benutzung auch mit einem Touchscreen funktioniert. Die Bedienelemente sind groß und deutlich.</p><p>Das Programm enstand im Zuge eines Praktikumssemesters. Die <a href="http://www.luckenberger-schule.de/">Luckenberger Grundschule</a> in <a href="http://www.stadt-brb.de/stadt-brandenburg/">Brandenburg an der Havel</a> integriert seit einigen Jahren körperlich behinderte und lernbehinderte Kinder in den Schulalltag. Zusammen mit Herrn Heiko Nachtigall, dem stellvertretenden Schulleiter der Schule, wurde es konzipiert.</p><p>Ein körperlich behindertes Kind kann, wenn es Schwierigkeiten im Umgang mit Stift und Papier oder pädagogischem Spielzeug hat, in den frühen Grundschuljahren evtl. mit dem Lernpensum zurück bleiben. Das Be-"greifen" spielt beim Lernen eine wichtige Rolle. Ein leicht per Touchscreen bedienbares Lernprogramm mit großen Bedienelementen kann diese motorischen Schwierigkeiten eventuell teilweise kompensieren.</p>') ?>
 <?
 		};
 	}
@@ -111,8 +113,8 @@
 				<a class="external" href="http://sourceforge.net/projects/touchandlearn/"><?= text('SF project page', 'SF Projekt-Seite'); ?></a>
 			</div>
 			<div id="content">
-<?=writeContent();
-?>
+<?=writeContent();?>
+
 			</div>
 			<div id="footer">
 			</div>
