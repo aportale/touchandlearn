@@ -1,3 +1,9 @@
+A[href*="http://"]
+{
+	background: url(external.png) center right no-repeat;
+	padding-right: 13px;
+}
+
 A
 {
 	color : #330000;
@@ -10,16 +16,10 @@ A:Visited
 	background-color : #FFFFCC;
 }
 
-A:Hover, A.external:Hover
+A:Hover
 {
 	color : #FFFFCC;
 	background-color : #666633;
-}
-
-A.external
-{
-	background: url(external.png) center right no-repeat;
-	padding-right: 13px;
 }
 
 h2
@@ -49,6 +49,7 @@ body
 	padding : 0px 0px 0px 0px;
 	margin: auto;
 	width: 650px;
+	text-align: center;
 }
 
 #header
@@ -73,52 +74,54 @@ body
 	font-weight: bold;
 }
 
-#navigation
+#navigationlist
 {
-	float: left;
-	width: 130px;
+	padding: 0;
 }
 
-#navigation ul
+#navigationlist li
 {
-	margin: 0px;
-	margin-bottom: 15px;
-	padding: 0px;
-	list-style-type: none;
+	display: inline;
 }
 
-#navigation a
+#navigationlist a
 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	font-size : 0.9em;
 	color: #FFFFCC;
-	display: block;
-	padding: 3px 0px 4px 6px;
-	margin: 0px;
+	padding: 3px 6px;
+	margin: 1px;
 	background-color: #999966;
 	border-bottom: #FFFFCC 1px solid;
 	text-decoration: none;
 }
 
+#navigationlist A.external
+{
+	padding-right: 13px;
+}
+
 #navigationlist a:hover
 {
 	color: #FFFFCC;
-	background : #666633 url(menuarrows_hover.png) right center no-repeat;
+	background-color : #666633;
 }
 
 #navigationlist .selected
 {
 	color: #666633;
-	background : #FFFFCC url(menuarrows_selected.png) right center no-repeat;
+	background-color : #FFFFCC;
+	border-color: #999966;
+	border-style: solid;
+	border-width: 1px 1px 0px 1px;
 }
 
 #content
 {
-	float: right;
-	width: 475px;
-	padding: 0px 20px 0px 0px;
+	padding: 20px 40px 40px 40px;
 	margin: 0px;
+	text-align: left;
 }
 
 #content li
