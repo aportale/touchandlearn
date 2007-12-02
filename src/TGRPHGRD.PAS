@@ -91,8 +91,8 @@ end;
 procedure TGraphicGrid.SetCell_POS(Position: integer; BildID:TMetaFile);
 var	x_Pos, y_Pos: integer;
 begin
-	x_Pos := ((Position - 1) div 5) + 1;
-	y_Pos := ((Position - 1) mod 5) + 1;
+	x_Pos := ((Position - 1) div Zeilen) + 1;
+	y_Pos := ((Position - 1) mod Zeilen) + 1;
 	SetCell_XY(x_Pos, y_Pos, BildID);
 end;
 
