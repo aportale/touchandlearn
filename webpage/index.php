@@ -33,7 +33,7 @@
 	
 	function screenShot($imageBaseName, $imageCaption)
 	{
-		return "<a href=\"screenshot_$imageBaseName.png\"><img src=\"screenshot_".$imageBaseName."_thumb.png\" width=\"100\" height=\"80\" alt=\"$imageCaption\" /><br />$imageCaption</a>\n";
+		return "<a href=\"screenshot_$imageBaseName.png\" rel=\"lightbox[screenshot]\" title=\"$imageCaption\"><img src=\"screenshot_".$imageBaseName."_thumb.png\" width=\"100\" height=\"80\" alt=\"$imageCaption\" /><br />$imageCaption</a>\n";
 	}
 	
 	function writeContent()
@@ -65,13 +65,13 @@
 			case 'status':
 ?>
 				<h2><?=text('Status', 'Status')?></h2>
-					<?=text('<p>The progam was developed in 1998 in Turbo Delphi 1.0 for Windows 3.1.</p>'.
+					<?=text('<p>The progam Touch\'n\'learn was developed in 1998 in Turbo Delphi 1.0 for Windows 3.1.</p>'.
 							'<p>In 2007, I released it on SourceForge and intended to portin it to the opensource and crossplatform <a href="http://www.lazarus.freepascal.org/">Free Pascal Lazarus</a>. Then I realized that unlike Delphi, Lazarus has no tools for loading and rendering vector graphics.</p>'.
 							'<p>A basic concept of Touch\'n\'learn is, however, the fullscreen resolution independent UI, which relies on vector graphics. That lead to my conclusion that the program rather needs to be reimplemented with a modern framework like <a href="http://trolltech.com/products/qt">Trolltechs Qt</a>. The paint system of Qt supports<a href="http://doc.trolltech.com/4.3/paintsystem.html">SVG and antialiasing</a>.</p>'.
 							'<p>The code reflects my coding style of 9 years, ago. German-english namings, weak design and wrong ambitions. So Touch\'n\'learn would definitely benefit from a complete reimplementation.</p>'.
 							'<p>If there is enough interest for the project, I will love to create something new, better, bigger. Just contact me via the SourceForge page.</p>',
 
-							'<p>Das Programm wurde 1998 mit Turbo Delphi für Windows 3.1 entwickelt.</p>'.
+							'<p>Das Programm Touch\'n\'learn wurde 1998 mit Turbo Delphi für Windows 3.1 entwickelt.</p>'.
 							'<p>2007 veröffentlichte ich es auf SourceForge und hatte vor, es auf das quelloffene und plattformunabhängige <a href="http://www.lazarus.freepascal.org/">Free Pascal Lazarus</a> zu portieren. Dann stellte ich fest, dass Lazarus -anders als Delphi- keine Werkzeuge zum Laden und Zeichnen von Vektorgrafik hat.</p>'.
 							'<p>Ein grundlegendes Konzept von Touch\'n\'learn ist allerdings eine bildschirmfüllende, auflösungsunabhängige Benutzeroberfläche. Dieses Konzept erfordert Vektorgrafik. Dies führte zu meiner Schlussfolgerung, dass eher eine Neuimplementierung mit einem modernen Werkzeug wie <a href="http://trolltech.com/products/qt">Trolltechs Qt</a> nötig sei. Das Grafiksystem von Qt unterstützt <a href="http://doc.trolltech.com/4.3/paintsystem.html">SVG und Bildkantenglättung</a>.</p>'.
 							'<p>Der Quelltext spiegelt meinen Programmierstil von vor 9 Jahren wider. Deutsch-englische Namensgebungs, schwaches Design und falsche Ambitionen. Daher würde Touch\'n\'learn definitiv von einer kompletten Neuimplementierung profitieren.</p>'.
@@ -120,6 +120,13 @@
 		<style type="text/css" media="all">
 			@import "style.css";
 		</style>
+<? if ($page == "screenshots"){ ?>
+		<style type="text/css" media="screen">
+			@import "slimbox.css";
+		</style>
+		<script language="javascript" src="mootools-release-1.11.js" type="text/javascript" />
+		<script language="javascript" src="slimbox.js" type="text/javascript" />
+<? } ?>
 	</head>
 	<body>
 		<div id="page">
