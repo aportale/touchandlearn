@@ -2,7 +2,7 @@
 
 [Setup]
 InternalCompressLevel=ultra
-OutputBaseFilename=touchandlearn-1.0-setup
+OutputBaseFilename=touchandlearn-1.0-german-setup
 SolidCompression=true
 VersionInfoVersion=1.0
 VersionInfoCompany=CasaPortale.de
@@ -31,7 +31,7 @@ WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 
 [Files]
-Source: ..\src\LERNPROG.exe; DestDir: {app}; DestName: touchandlearn.exe
+Source: ..\src\touchandlearn.exe; DestDir: {app}
 Source: ..\src\AUFGABEN.TXT; DestDir: {app}
 Source: readme.html; DestDir: {app}
 Source: license.rtf; DestDir: {app}
@@ -43,6 +43,7 @@ Name: {group}\Touch 'n learn; Filename: {app}\touchandlearn.exe; WorkingDir: {ap
 Name: {group}\Deinstallieren; Filename: {uninstallexe}; WorkingDir: {app}
 Name: {group}\Liesmich; Filename: {app}\readme.html
 Name: {group}\Lizenz; Filename: {app}\license.rtf
+Name: {group}\Homepage; Filename: http://touchandlearn.sourceforge.net/
 
 [Run]
 Filename: {app}\touchandlearn.exe; WorkingDir: {app}; Flags: postinstall
