@@ -1,4 +1,4 @@
-program Lernprog;
+program touchandlearn;
 
 uses
   Forms,
