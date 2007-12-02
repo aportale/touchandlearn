@@ -80,17 +80,26 @@ begin
 end;
 
 function TBuchstaben_Form.stringsort(istr:STRING):STRING;
-var	i, j:INTEGER;
-	hilfe:Char;
+var
+	i, j:INTEGER;
+	char1, char2, tempChar: Char;
+	stringHead, stringTail: String;
 begin
 	for i := length(istr)-1 downto 1 do
 		for j := 1 to i do
-			if upcase(istr[j]) > Upcase(istr[j+1]) then
+		begin
+			stringHead := Copy(istr, 1, j-1);
+			char1 := istr[j];
+			char2 := istr[j+1];
+			stringTail := Copy(istr, j+2, length(istr) - j+2);
+			if upcase(char1) > Upcase(char2) then
 			begin
-				hilfe := istr[j];
-				istr[j] := istr[j+1];
-				istr[j+1] := hilfe;
+				tempChar := char1;
+				char1 := char2;
+				char2 := tempChar;
 			end;
+		istr := stringHead + char1 + char2 + stringTail;
+		end;
 	stringsort := istr;
 end;
 

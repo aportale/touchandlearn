@@ -39,7 +39,7 @@ type
 		procedure SetIsEnabled(Value: Boolean);
 		function GetIsEnabled:Boolean;
 		constructor Create(AOwner: TComponent; pos_x, pos_y, breite,
-		  hoehe, ASpaltenAnzahl :Integer; wmfpfad:String);
+		  hoehe, ASpaltenAnzahl :Integer; wmfpfad:String); reintroduce;
 		destructor Destroy; override;
 	published
 		property OnClick;
