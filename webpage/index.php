@@ -107,10 +107,7 @@
 	
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?
-	$textColor = "#330000";
-	$contentBackgroundColor = "#ffffee";
-?><html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<meta name="author" content="Alessandro Portale" />
@@ -120,13 +117,17 @@
 		<style type="text/css" media="all">
 			@import "style.css";
 		</style>
-<? if ($page == "screenshots"){ ?>
+<?	if ($page == "screenshots"){
+		// MooTools/Slimbox, somehow make IE 6 not display anything
+		$browser = get_browser(null, true);
+		if ($browser[browser] != "IE" || $browser['majorver'] > 6){ ?>
 		<style type="text/css" media="screen">
 			@import "slimbox.css";
 		</style>
 		<script language="javascript" src="mootools-release-1.11.js" type="text/javascript" />
 		<script language="javascript" src="slimbox.js" type="text/javascript" />
-<? } ?>
+<? 		}
+	}?>
 	</head>
 	<body>
 		<div id="page">
