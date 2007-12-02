@@ -119,8 +119,9 @@
 		</style>
 <?	if ($page == "screenshots"){
 		// MooTools/Slimbox, somehow make IE 6 not display anything
-		$browser = get_browser(null, true);
-		if ($browser[browser] != "IE" || $browser['majorver'] > 6){ ?>
+		require_once ('phpSniff.class.php');
+		$phpSniff=new phpSniff();
+		if ($phpSniff->property('browser') != "ie" || $phpSniff->property('maj_ver') > 6){ ?>
 		<style type="text/css" media="screen">
 			@import "slimbox.css";
 		</style>
