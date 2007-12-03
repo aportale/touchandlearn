@@ -87,7 +87,7 @@
 					<a class="external" href="http://touchandlearn.sourceforge.net/<?= text('', '?lang=german') ?>">http://touchandlearn.sourceforge.net/</a>
 				</p>
 				<?=text('', '<p><em>Der folgende Lizenztext ist in seiner englischen Originalfassung aufgef&uuml;hrt, da die <a class="external" href="http://www.gnu.de/gpl-ger.html">deutsche &Uuml;bersetzung</a> nicht offiziell oder im rechtlichen Sinne anerkannt ist.</em></p>')?>
-				<p>Touch'n'learn is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
+				<p>Touch'n'learn is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.</p>
 				<p>Touch'n'learn is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the <a class="external" href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a> for more details.</p>
 <?
 			break;
@@ -125,8 +125,8 @@
 		<style type="text/css" media="screen">
 			@import "slimbox.css";
 		</style>
-		<script language="javascript" src="mootools-release-1.11.js" type="text/javascript" />
-		<script language="javascript" src="slimbox.js" type="text/javascript" />
+		<script src="mootools-release-1.11.js" type="text/javascript" />
+		<script src="slimbox.js" type="text/javascript" />
 <? 		}
 	}?>
 	</head>
